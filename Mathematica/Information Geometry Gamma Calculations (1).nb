@@ -1,0 +1,2012 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     66887,       2003]
+NotebookOptionsPosition[     64649,       1924]
+NotebookOutlinePosition[     64993,       1939]
+CellTagsIndexPosition[     64950,       1936]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Information Geometry of the Gamma Distribution", "Title",
+ CellChangeTimes->{{3.508388428678046*^9, 3.5083884658911743`*^9}, {
+  3.5083894398968844`*^9, 3.5083894479803467`*^9}}],
+
+Cell["Nicholas Wisniewski", "Subtitle",
+ CellChangeTimes->{{3.508389452988633*^9, 3.5083894553937707`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", "=", "k"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "\[Theta]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"distribution", "=", 
+   RowBox[{"PDF", "[", 
+    RowBox[{
+     RowBox[{"GammaDistribution", "[", 
+      RowBox[{"a", ",", "b"}], "]"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdfCoords", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdfAssumptions", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", ">", "0"}], ",", 
+     RowBox[{"b", ">", "0"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdfIntegrationLimits", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "\[Infinity]"}], "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.508386892614188*^9, 3.508386899060557*^9}, {
+  3.508387103180232*^9, 3.5083871222433224`*^9}, {3.5083873214187145`*^9, 
+  3.5083873216867294`*^9}, {3.5083875416163087`*^9, 3.508387553298977*^9}, {
+  3.508387682777383*^9, 3.5083876829553933`*^9}, {3.508388364710387*^9, 
+  3.5083883705367203`*^9}, {3.5083884724465494`*^9, 3.5083884744556646`*^9}, {
+  3.5083885491289353`*^9, 3.508388563635765*^9}, {3.5083886009549*^9, 
+  3.5083886056891704`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"g", "=", 
+  RowBox[{"FisherMetric", "[", 
+   RowBox[{
+   "distribution", ",", "pdfCoords", ",", "pdfAssumptions", ",", 
+    "pdfIntegrationLimits"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5081613488630505`*^9, 3.5081615368778048`*^9}, {
+  3.5083830684124565`*^9, 3.508383074687815*^9}, {3.5083869167145667`*^9, 
+  3.5083869186906796`*^9}, {3.5083871652537823`*^9, 3.508387179778613*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      TemplateBox[{"1","k"},
+       "PolyGamma2"], 
+      FractionBox["1", "\[Theta]"]},
+     {
+      FractionBox["1", "\[Theta]"], 
+      FractionBox["k", 
+       SuperscriptBox["\[Theta]", "2"]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5081615670185285`*^9, 3.5081615773241177`*^9}, 
+   3.5081616170403895`*^9, 3.5083787012056665`*^9, 3.5083787438821073`*^9, 
+   3.5083787757789316`*^9, 3.5083831470889564`*^9, 3.508386922335888*^9, 
+   3.5083873306542425`*^9, {3.5083877157582693`*^9, 3.5083877303671045`*^9}, 
+   3.5083883811093254`*^9, 3.5083886159697585`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[CapitalGamma]", "=", 
+  RowBox[{"LeviCivitaCoefficients", "[", 
+   RowBox[{"g", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508161636207486*^9, 3.5081616667522326`*^9}, {
+  3.508383080261134*^9, 3.5083830961910453`*^9}, {3.508387210998399*^9, 
+  3.5083872118424473`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"k", " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}], 
+         RowBox[{
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", "2"}]], ",", 
+        FractionBox[
+         RowBox[{"\[Theta]", " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox[
+         TemplateBox[{"1","k"},
+          "PolyGamma2"], 
+         RowBox[{
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox[
+         TemplateBox[{"1","k"},
+          "PolyGamma2"], 
+         RowBox[{
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["k", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["\[Theta]", "2"]}], "-", 
+          RowBox[{"2", " ", "k", " ", 
+           SuperscriptBox["\[Theta]", "2"], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox["1", 
+         RowBox[{"\[Theta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            FractionBox["1", 
+             RowBox[{"3", "-", 
+              RowBox[{"2", " ", "k", " ", 
+               TemplateBox[{"1","k"},
+                "PolyGamma2"]}]}]], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.5081616682743196`*^9, 3.5081628871770372`*^9, 
+  3.508378780015174*^9, 3.508383149651103*^9, 3.5083873336294127`*^9, 
+  3.50838773046011*^9, 3.508388381206331*^9, 3.508388616541791*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[CapitalGamma]\[Alpha]", "=", 
+  RowBox[{"AlphaCoefficients", "[", 
+   RowBox[{
+   "distribution", ",", "g", ",", "pdfCoords", ",", "pdfAssumptions", ",", 
+    "pdfIntegrationLimits"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508161677686858*^9, 3.5081617160500526`*^9}, {
+   3.5081617569623923`*^9, 3.508161768299041*^9}, {3.5081618312306404`*^9, 
+   3.508161832937738*^9}, {3.508163468308276*^9, 3.5081634695833488`*^9}, {
+   3.50816371157419*^9, 3.5081637119222097`*^9}, {3.508164050825594*^9, 
+   3.5081640527947063`*^9}, {3.5081640942480774`*^9, 
+   3.5081641266599317`*^9}, {3.5081642572334003`*^9, 3.5081642578254337`*^9}, 
+   3.5083830862114744`*^9, {3.5083869321874514`*^9, 3.508386933402521*^9}, {
+   3.508387222609063*^9, 3.508387238624979*^9}, {3.5083882889110518`*^9, 
+   3.5083882891540656`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"k", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", "\[Theta]", " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}], 
+         RowBox[{
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"1", "-", "\[Alpha]"}], 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"1", "-", "\[Alpha]"}], 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"k", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}]}], 
+         RowBox[{"2", " ", 
+          SuperscriptBox["\[Theta]", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+        FractionBox[
+         RowBox[{"\[Alpha]", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "+", "3"}], 
+         RowBox[{"2", " ", "\[Theta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5081618059461946`*^9, 3.508161876063205*^9, 3.508161940971917*^9, 
+   3.508162033113188*^9, 3.5081624585565214`*^9, 3.5081628694340224`*^9, 
+   3.508163288855012*^9, 3.508163473464571*^9, 3.508163571611184*^9, {
+   3.5081636066681895`*^9, 3.508163626899347*^9}, 3.50816370423577*^9, 
+   3.5081637543636374`*^9, 3.5081639585073137`*^9, 3.508164057138955*^9, 
+   3.508164098924345*^9, 3.5081641291120715`*^9, 3.508164283362894*^9, 
+   3.5083788220045757`*^9, 3.508383176102616*^9, 3.50838695715788*^9, 
+   3.5083873656682453`*^9, 3.508387992232083*^9, 3.5083882797145257`*^9, 
+   3.5083883580030036`*^9, 3.5083884155352945`*^9, 3.5083891923877277`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[CapitalGamma]\[Alpha]", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "0"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[CapitalGamma]\[Alpha]", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[CapitalGamma]\[Alpha]", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    RowBox[{"-", "1"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.5083869726087637`*^9, 3.5083869903547783`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"k", " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}]}]]}], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[Theta]", " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}], 
+          RowBox[{
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}], "-", "2"}]]}]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          TemplateBox[{"1","k"},
+           "PolyGamma2"], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}]}]]}]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          TemplateBox[{"1","k"},
+           "PolyGamma2"], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}]}]]}]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["k", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["\[Theta]", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"k", " ", 
+              TemplateBox[{"1","k"},
+               "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], ",", 
+        FractionBox[
+         RowBox[{"3", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}], 
+         RowBox[{"2", " ", "\[Theta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386991030817*^9, 3.50838737029251*^9, 
+  3.5083884156403008`*^9, 3.5083891925767384`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        FractionBox[
+         RowBox[{"4", "-", 
+          RowBox[{"4", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}], 
+         RowBox[{"2", " ", "\[Theta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386991030817*^9, 3.50838737029251*^9, 
+  3.5083884156403008`*^9, 3.5083891926247416`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}]}]]}], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", " ", "\[Theta]", " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}], 
+          RowBox[{
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}], "-", "2"}]]}]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["2", 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}]}]]}]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["2", 
+         RowBox[{
+          RowBox[{"2", " ", "\[Theta]"}], "-", 
+          RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}]], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}]}]]}]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["k", 
+          RowBox[{
+           SuperscriptBox["\[Theta]", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"k", " ", 
+              TemplateBox[{"1","k"},
+               "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], ",", 
+        FractionBox["1", 
+         RowBox[{"\[Theta]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386991030817*^9, 3.50838737029251*^9, 
+  3.5083884156403008`*^9, 3.5083891926867447`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Ruplijk", "=", 
+  RowBox[{"RiemannTensor1", "[", 
+   RowBox[{"\[CapitalGamma]\[Alpha]", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508378845277907*^9, 3.5083789120567265`*^9}, {
+   3.5083817928304973`*^9, 3.5083817991808605`*^9}, {3.5083818674217634`*^9, 
+   3.508381910795244*^9}, 3.5083831145890975`*^9, 3.508387248768559*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}], 
+            RowBox[{"4", " ", "\[Theta]", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"k", " ", 
+                 TemplateBox[{"1","k"},
+                  "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"1","k"},
+               "PolyGamma2"], "+", 
+              RowBox[{"k", " ", 
+               TemplateBox[{"2","k"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", "\[Theta]", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"k", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}], 
+            RowBox[{"4", " ", 
+             SuperscriptBox["\[Theta]", "2"], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"k", " ", 
+                 TemplateBox[{"1","k"},
+                  "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}]},
+         {
+          FractionBox[
+           RowBox[{"k", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"1","k"},
+               "PolyGamma2"], "+", 
+              RowBox[{"k", " ", 
+               TemplateBox[{"2","k"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["\[Theta]", "2"], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]},
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"1","k"},
+               "PolyGamma2"], "+", 
+              RowBox[{"k", " ", 
+               TemplateBox[{"2","k"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+         {
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}], 
+            RowBox[{"4", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"k", " ", 
+                 TemplateBox[{"1","k"},
+                  "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"1","k"},
+               "PolyGamma2"], "+", 
+              RowBox[{"k", " ", 
+               TemplateBox[{"2","k"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", "\[Theta]", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+         {
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}], 
+            RowBox[{"4", " ", "\[Theta]", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"k", " ", 
+                 TemplateBox[{"1","k"},
+                  "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508378917316027*^9, 3.5083818049861927`*^9, {3.5083818754452224`*^9, 
+   3.5083819115242863`*^9}, 3.508383181542927*^9, 3.5083873780909557`*^9, 
+   3.508388415790309*^9, 3.5083891934687896`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Rdownlijk", "=", 
+  RowBox[{"RiemannTensor2", "[", 
+   RowBox[{"\[CapitalGamma]\[Alpha]", ",", "g", ",", "pdfCoords"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083818120065937`*^9, 3.508381820768095*^9}, {
+   3.5083819135744033`*^9, 3.5083819339395685`*^9}, {3.508381965916397*^9, 
+   3.5083820142041593`*^9}, 3.5083831184843206`*^9, {3.5083870883643847`*^9, 
+   3.508387089732463*^9}, {3.5083872539708567`*^9, 3.5083872708628225`*^9}, {
+   3.5083893280764885`*^9, 3.5083893523228755`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", "0"},
+         {"0", "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}], 
+            RowBox[{"4", " ", 
+             SuperscriptBox["\[Theta]", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}]}]]}]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"1","k"},
+               "PolyGamma2"], "+", 
+              RowBox[{"k", " ", 
+               TemplateBox[{"2","k"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["\[Theta]", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"k", " ", 
+               TemplateBox[{"1","k"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]},
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"1","k"},
+               "PolyGamma2"], "+", 
+              RowBox[{"k", " ", 
+               TemplateBox[{"2","k"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["\[Theta]", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"k", " ", 
+               TemplateBox[{"1","k"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]]},
+         {
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}], 
+            RowBox[{"4", " ", 
+             SuperscriptBox["\[Theta]", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", "0"},
+         {"0", "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508382017140327*^9, 3.5083831871592484`*^9, 3.508387383037239*^9, 
+   3.5083884177064185`*^9, 3.5083892377963247`*^9, {3.5083893353869066`*^9, 
+   3.50838935327293*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Rij", "=", 
+  RowBox[{"RicciTensor", "[", 
+   RowBox[{"Ruplijk", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083800837837453`*^9, 3.5083801219669294`*^9}, 
+   3.5083831292249346`*^9, {3.5083832180520153`*^9, 3.5083832435284724`*^9}, 
+   3.508387275939113*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           TemplateBox[{"1","k"},
+            "PolyGamma2"], "+", 
+           RowBox[{"k", " ", 
+            TemplateBox[{"2","k"},
+             "PolyGamma2"]}]}], ")"}]}], 
+        RowBox[{"4", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}], 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           TemplateBox[{"1","k"},
+            "PolyGamma2"], "+", 
+           RowBox[{"k", " ", 
+            TemplateBox[{"2","k"},
+             "PolyGamma2"]}]}], ")"}]}], 
+        RowBox[{"4", " ", "\[Theta]", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}]},
+     {
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           TemplateBox[{"1","k"},
+            "PolyGamma2"], "+", 
+           RowBox[{"k", " ", 
+            TemplateBox[{"2","k"},
+             "PolyGamma2"]}]}], ")"}]}], 
+        RowBox[{"4", " ", "\[Theta]", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}], 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"k", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           TemplateBox[{"1","k"},
+            "PolyGamma2"], "+", 
+           RowBox[{"k", " ", 
+            TemplateBox[{"2","k"},
+             "PolyGamma2"]}]}], ")"}]}], 
+        RowBox[{"4", " ", 
+         SuperscriptBox["\[Theta]", "2"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", 
+             TemplateBox[{"1","k"},
+              "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5083801243480654`*^9, 3.5083801398829536`*^9}, 
+   3.508380259191778*^9, 3.5083803540952063`*^9, 3.508380385859023*^9, 
+   3.50838062655479*^9, 3.508380682607996*^9, 3.5083808406640368`*^9, 
+   3.508380951548379*^9, 3.508381049288969*^9, 3.5083811262663717`*^9, 
+   3.5083831910954733`*^9, {3.508383229983698*^9, 3.5083832442965164`*^9}, 
+   3.508387388236536*^9, 3.508388417841426*^9, 3.508389362028431*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"R", "=", 
+  RowBox[{"ScalarCurvature", "[", 
+   RowBox[{"Rij", ",", "g", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083827350573893`*^9, 3.5083827629909873`*^9}, {
+   3.508382811539764*^9, 3.5083828142109165`*^9}, 3.5083831362843385`*^9, {
+   3.5083835339340825`*^9, 3.508383534684126*^9}, 3.508387282017461*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       TemplateBox[{"1","k"},
+        "PolyGamma2"], "+", 
+       RowBox[{"k", " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"]}]}], ")"}]}], 
+    RowBox[{"2", " ", 
+     SuperscriptBox["\[Theta]", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], "-", "1"}], ")"}], "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], 
+        SuperscriptBox["\[Theta]", "2"]], "-", 
+       FractionBox["1", 
+        SuperscriptBox["\[Theta]", "2"]]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"k", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+     TemplateBox[{"1","k"},
+      "PolyGamma2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       TemplateBox[{"1","k"},
+        "PolyGamma2"], "+", 
+       RowBox[{"k", " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"]}]}], ")"}]}], 
+    RowBox[{"2", " ", 
+     SuperscriptBox["\[Theta]", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], "-", "1"}], ")"}], "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], 
+        SuperscriptBox["\[Theta]", "2"]], "-", 
+       FractionBox["1", 
+        SuperscriptBox["\[Theta]", "2"]]}], ")"}]}]]}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.5083827665421906`*^9, 3.508382815361983*^9, 
+  3.5083832522259703`*^9, 3.5083835353721647`*^9, 3.5083873906026716`*^9, 
+  3.5083884178884287`*^9, 3.5083893658196473`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"R", "\[Equal]", "0"}], ",", 
+   RowBox[{"{", "\[Alpha]", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.508389579270856*^9, 3.508389592208596*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Alpha]", "\[Rule]", 
+      RowBox[{"-", "1"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.5083895931106477`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"geodesics", "=", 
+  RowBox[{"EulerLagrangeEquations", "[", 
+   RowBox[{"\[CapitalGamma]\[Alpha]", ",", "pdfCoords", ",", "t"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083830342004995`*^9, 3.5083830400888367`*^9}, {
+   3.5083832648966947`*^9, 3.5083832882220287`*^9}, {3.5083835542682457`*^9, 
+   3.5083835608446217`*^9}, 3.5083872881328106`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["k", "\[Prime]\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "\[Theta]", " ", 
+          RowBox[{
+           SuperscriptBox["k", "\[Prime]",
+            MultilineFunction->None], "(", "t", ")"}], " ", 
+          RowBox[{
+           SuperscriptBox["\[Theta]", "\[Prime]",
+            MultilineFunction->None], "(", "t", ")"}]}], "-", 
+         RowBox[{"k", " ", 
+          SuperscriptBox["\[Theta]", "2"], " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox[
+           RowBox[{
+            SuperscriptBox["k", "\[Prime]",
+             MultilineFunction->None], "(", "t", ")"}], "2"]}], "+", 
+         RowBox[{"k", " ", 
+          SuperscriptBox[
+           RowBox[{
+            SuperscriptBox["\[Theta]", "\[Prime]",
+             MultilineFunction->None], "(", "t", ")"}], "2"]}]}], ")"}]}], 
+      RowBox[{"2", " ", 
+       SuperscriptBox["\[Theta]", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"k", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], ",", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "\[Theta]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"k", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", "\[Theta]", " ", 
+        TemplateBox[{"1","k"},
+         "PolyGamma2"], " ", 
+        RowBox[{
+         SuperscriptBox["k", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[Theta]", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+        SuperscriptBox["\[Theta]", "2"], " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "2"}], " ", "k", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "+", "\[Alpha]", "+", "3"}], ")"}], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}], "+", 
+       RowBox[{"2", " ", "\[Theta]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}]}], ")"}]}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508383303783919*^9, 3.5083835622377014`*^9, 
+  3.508387392554783*^9, 3.5083884182394485`*^9, 3.508389373956113*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"geodesics", "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", "0"}], "}"}]}], "//", 
+  "FullSimplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"geodesics", "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "//", 
+  "FullSimplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"geodesics", "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", 
+     RowBox[{"-", "1"}]}], "}"}]}], "//", "FullSimplify"}]}], "Input",
+ CellChangeTimes->{{3.5083835813577952`*^9, 3.5083836127865925`*^9}, {
+  3.508383649049667*^9, 3.5083836563820868`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["k", "\[Prime]\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"2", " ", "\[Theta]", " ", 
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], " ", 
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}]}]}], "+", 
+       RowBox[{"k", " ", 
+        SuperscriptBox["\[Theta]", "2"], " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}], "-", 
+       RowBox[{"k", " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}]}], 
+      RowBox[{"2", " ", 
+       SuperscriptBox["\[Theta]", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"k", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], ",", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"2", " ", "\[Theta]", " ", 
+        TemplateBox[{"1","k"},
+         "PolyGamma2"], " ", 
+        RowBox[{
+         SuperscriptBox["k", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[Theta]", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "-", 
+       RowBox[{
+        SuperscriptBox["\[Theta]", "2"], " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"3", "-", 
+          RowBox[{"2", " ", "k", " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}]}], ")"}], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}]}], 
+      RowBox[{"2", " ", "\[Theta]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"k", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], "+", 
+     RowBox[{
+      SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}]}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.5083836142156744`*^9, 3.5083836571151285`*^9, 
+  3.5083873948229127`*^9, 3.508388418347455*^9, 3.508389383735672*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["k", "\[Prime]\[Prime]",
+      MultilineFunction->None], "(", "t", ")"}], ",", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}], "-", 
+     FractionBox[
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        RowBox[{
+         SuperscriptBox["\[Theta]", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], "2"]}], "\[Theta]"]}]}], 
+   "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.5083836142156744`*^9, 3.5083836571151285`*^9, 
+  3.5083873948229127`*^9, 3.508388418347455*^9, 3.508389383761674*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["k", "\[Prime]\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"2", " ", "\[Theta]", " ", 
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], " ", 
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}]}]}], "+", 
+       RowBox[{"k", " ", 
+        SuperscriptBox["\[Theta]", "2"], " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}], "-", 
+       RowBox[{"k", " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}]}], 
+      RowBox[{
+       SuperscriptBox["\[Theta]", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"k", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], ",", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[Theta]", " ", 
+        TemplateBox[{"1","k"},
+         "PolyGamma2"], " ", 
+        RowBox[{
+         SuperscriptBox["k", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[Theta]", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[Theta]", "2"], " ", 
+        TemplateBox[{"2","k"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["k", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"]}], "-", 
+       SuperscriptBox[
+        RowBox[{
+         SuperscriptBox["\[Theta]", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], "2"]}], 
+      RowBox[{"\[Theta]", "-", 
+       RowBox[{"k", " ", "\[Theta]", " ", 
+        TemplateBox[{"1","k"},
+         "PolyGamma2"]}]}]], "+", 
+     RowBox[{
+      SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}]}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.5083836142156744`*^9, 3.5083836571151285`*^9, 
+  3.5083873948229127`*^9, 3.508388418347455*^9, 3.5083893848807373`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"einstein", "=", 
+  RowBox[{"EinsteinTensor", "[", 
+   RowBox[{"Rij", ",", "g", ",", "R", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.50838401188942*^9, 3.508384056899995*^9}, {
+   3.508384094327135*^9, 3.5083841116001234`*^9}, 3.5083872937451315`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox[
+       RowBox[{"k", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"16", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"k", " ", 
+                 TemplateBox[{"1","k"},
+                  "PolyGamma2"]}], "-", "1"}], ")"}], "4"]}], 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}]]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "+", 
+          RowBox[{"k", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}]}], ")"}]}], 
+       RowBox[{"4", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "3"]}]], 
+      FractionBox[
+       RowBox[{"\[Theta]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"16", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "4"]}], 
+           RowBox[{
+            TemplateBox[{"1","k"},
+             "PolyGamma2"], "+", 
+            RowBox[{"k", " ", 
+             TemplateBox[{"2","k"},
+              "PolyGamma2"]}]}]], "-", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], "2"], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"k", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], "2"], " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}]}], ")"}]}], 
+       RowBox[{"4", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "3"]}]]},
+     {
+      FractionBox[
+       RowBox[{"\[Theta]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"16", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"k", " ", 
+                TemplateBox[{"1","k"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "4"]}], 
+           RowBox[{
+            TemplateBox[{"1","k"},
+             "PolyGamma2"], "+", 
+            RowBox[{"k", " ", 
+             TemplateBox[{"2","k"},
+              "PolyGamma2"]}]}]], "-", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], "2"], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"k", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], "2"], " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}]}], ")"}]}], 
+       RowBox[{"4", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "3"]}]], 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[Theta]", "2"], " ", 
+        TemplateBox[{"1","k"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"16", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"k", " ", 
+                 TemplateBox[{"1","k"},
+                  "PolyGamma2"]}], "-", "1"}], ")"}], "4"]}], 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               TemplateBox[{"1","k"},
+                "PolyGamma2"], "+", 
+               RowBox[{"k", " ", 
+                TemplateBox[{"2","k"},
+                 "PolyGamma2"]}]}], ")"}]}]]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+           TemplateBox[{"1","k"},
+            "PolyGamma2"]}], "+", 
+          RowBox[{"k", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","k"},
+            "PolyGamma2"]}]}], ")"}]}], 
+       RowBox[{"4", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"k", " ", 
+            TemplateBox[{"1","k"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "3"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5083840580290594`*^9, 3.5083841122171583`*^9}, 
+   3.5083873975970716`*^9, 3.508388418565468*^9, 3.508389410181185*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"covderiv", "=", 
+  RowBox[{"CovariantDerivative", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b"}], "}"}], ",", "\[CapitalGamma]\[Alpha]", ",", 
+    "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083856875002594`*^9, 3.50838572107518*^9}, {
+  3.508386026355641*^9, 3.5083860503710146`*^9}, {3.5083861306136045`*^9, 
+  3.508386132973739*^9}, {3.5083872993204503`*^9, 3.5083873039007125`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"k", " ", "\[Theta]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "-", 
+         RowBox[{"k", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}]}], ")"}]}], "+", 
+      RowBox[{"2", " ", "k", " ", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "-", "1"}], ")"}]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "-", "3"}], ")"}], " ", "\[Theta]"}]}], 
+     RowBox[{"2", " ", "\[Theta]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       TemplateBox[{"1","k"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"3", " ", "k", " ", "\[Alpha]"}]}], "+", "k", "-", 
+         RowBox[{"\[Alpha]", " ", "\[Theta]"}], "+", "\[Theta]"}], ")"}]}], 
+      "+", 
+      RowBox[{"k", " ", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", "\[Theta]", " ", 
+       TemplateBox[{"2","k"},
+        "PolyGamma2"]}], "+", "\[Alpha]", "+", "1"}], 
+     RowBox[{
+      RowBox[{"2", " ", "k", " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", "2"}]]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.5083860517000904`*^9, 3.5083861342158103`*^9, 
+  3.5083864546871405`*^9, 3.508386579984307*^9, 3.508387399691191*^9, 
+  3.508388418675474*^9, 3.5083894187626753`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"covderiv", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "0"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"covderiv", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"covderiv", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    RowBox[{"-", "1"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.508386591042939*^9, 3.5083866154463353`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"k", " ", "\[Theta]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "+", 
+         RowBox[{"k", " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}]}], ")"}]}], "-", 
+      RowBox[{"2", " ", "k"}], "-", 
+      RowBox[{"3", " ", "\[Theta]"}]}], 
+     RowBox[{"2", " ", "\[Theta]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"k", "+", "\[Theta]"}], ")"}], " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", 
+      RowBox[{"k", " ", "\[Theta]", " ", 
+       TemplateBox[{"2","k"},
+        "PolyGamma2"]}], "+", "1"}], 
+     RowBox[{
+      RowBox[{"2", " ", "k", " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", "2"}]]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386616194378*^9, 3.5083874019343195`*^9, 
+  3.508388418713476*^9, 3.5083894286382403`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", 
+      RowBox[{"2", " ", "\[Theta]"}]}], 
+     RowBox[{"2", " ", "\[Theta]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+    FractionBox[
+     RowBox[{"2", "-", 
+      RowBox[{"2", " ", "k", " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}]}], 
+     RowBox[{
+      RowBox[{"2", " ", "k", " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", "2"}]]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386616194378*^9, 3.5083874019343195`*^9, 
+  3.508388418713476*^9, 3.508389428657242*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"k", " ", "\[Theta]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          TemplateBox[{"1","k"},
+           "PolyGamma2"]}], "+", 
+         RowBox[{"2", " ", "k", " ", 
+          TemplateBox[{"2","k"},
+           "PolyGamma2"]}]}], ")"}]}], "-", 
+      RowBox[{"4", " ", "k"}], "-", 
+      RowBox[{"4", " ", "\[Theta]"}]}], 
+     RowBox[{"2", " ", "\[Theta]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", " ", 
+         TemplateBox[{"1","k"},
+          "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"4", " ", "k"}], "+", 
+         RowBox[{"2", " ", "\[Theta]"}]}], ")"}], " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", 
+      RowBox[{"2", " ", "k", " ", "\[Theta]", " ", 
+       TemplateBox[{"2","k"},
+        "PolyGamma2"]}]}], 
+     RowBox[{
+      RowBox[{"2", " ", "k", " ", 
+       TemplateBox[{"1","k"},
+        "PolyGamma2"]}], "-", "2"}]]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386616194378*^9, 3.5083874019343195`*^9, 
+  3.508388418713476*^9, 3.5083894286712427`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{510, 533},
+WindowMargins->{{35, Automatic}, {20, Automatic}},
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (January 30, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 184, 2, 137, "Title"],
+Cell[754, 26, 107, 1, 49, "Subtitle"],
+Cell[864, 29, 1279, 32, 132, "Input"],
+Cell[CellGroupData[{
+Cell[2168, 65, 414, 8, 52, "Input"],
+Cell[2585, 75, 1076, 27, 68, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3698, 107, 314, 6, 31, "Input"],
+Cell[4015, 115, 2882, 86, 95, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6934, 206, 836, 14, 52, "Input"],
+Cell[7773, 222, 4031, 112, 83, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11841, 339, 490, 11, 72, "Input"],
+Cell[12334, 352, 2991, 92, 83, "Output"],
+Cell[15328, 446, 1247, 37, 66, "Output"],
+Cell[16578, 485, 2929, 90, 83, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19544, 580, 370, 6, 31, "Input"],
+Cell[19917, 588, 8600, 238, 176, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28554, 831, 520, 9, 31, "Input"],
+Cell[29077, 842, 5646, 154, 172, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34760, 1001, 301, 6, 31, "Input"],
+Cell[35064, 1009, 3556, 105, 94, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38657, 1119, 355, 6, 31, "Input"],
+Cell[39015, 1127, 1981, 66, 132, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41033, 1198, 209, 5, 31, "Input"],
+Cell[41245, 1205, 300, 10, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41582, 1220, 376, 7, 31, "Input"],
+Cell[41961, 1229, 3402, 97, 151, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45400, 1331, 617, 17, 72, "Input"],
+Cell[46020, 1350, 2729, 79, 106, "Output"],
+Cell[48752, 1431, 688, 19, 51, "Output"],
+Cell[49443, 1452, 2500, 72, 105, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51980, 1529, 292, 5, 31, "Input"],
+Cell[52275, 1536, 6372, 191, 134, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58684, 1732, 441, 9, 31, "Input"],
+Cell[59128, 1743, 1719, 51, 104, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60884, 1799, 443, 11, 72, "Input"],
+Cell[61330, 1812, 1193, 38, 56, "Output"],
+Cell[62526, 1852, 829, 26, 57, "Output"],
+Cell[63358, 1880, 1263, 40, 56, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

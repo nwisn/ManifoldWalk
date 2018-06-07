@@ -1,0 +1,4763 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    173199,       4754]
+NotebookOptionsPosition[    170921,       4675]
+NotebookOutlinePosition[    171265,       4690]
+CellTagsIndexPosition[    171222,       4687]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Information Geometry of the Inverse Gamma Distribution", "Title",
+ CellChangeTimes->{{3.508388428678046*^9, 3.5083884658911743`*^9}, {
+  3.5083894398968844`*^9, 3.5083894479803467`*^9}, {3.5083896436025352`*^9, 
+  3.5083896450876207`*^9}, {3.508391029443553*^9, 3.5083910356599083`*^9}, {
+  3.508393155371149*^9, 3.5083931577172832`*^9}, {3.508393420565317*^9, 
+  3.5083934215483737`*^9}, {3.50839360768602*^9, 3.5083936096711335`*^9}, {
+  3.50839365699084*^9, 3.5083936600090127`*^9}, {3.5083938123567266`*^9, 
+  3.5083938196131415`*^9}, {3.5083939813703938`*^9, 3.5083939828564787`*^9}, {
+  3.508394319305722*^9, 3.508394324175001*^9}, {3.5083947007195377`*^9, 
+  3.508394704130733*^9}, {3.5084658403144903`*^9, 3.50846584433672*^9}}],
+
+Cell["Nicholas Wisniewski", "Subtitle",
+ CellChangeTimes->{{3.508389452988633*^9, 3.5083894553937707`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", "=."}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=."}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"distribution", "=", 
+   RowBox[{"PDF", "[", 
+    RowBox[{
+     RowBox[{"InverseGammaDistribution", "[", 
+      RowBox[{"a", ",", "b"}], "]"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdfCoords", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdfAssumptions", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", ">", "0"}], ",", 
+     RowBox[{"b", ">", "0"}], ","}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdfIntegrationLimits", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "\[Infinity]"}], "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdyEsowwEAx/G1UtLMdlAOLJvUxiYlRXnEZVoebazm0Txqm7w2MQdEiWJl
+tc1ryqRhIrZMjMkjr78DISuvtl2kWPwPDpSW/f6Hb5/6cpu0MhWdRqNxIsEO
+h2VsJ+W9KJ5sNMCe01c7LL0UL8NEtegQun6zKa887ieYYxK8QFlQEYKTZiXl
+gHeqyBPxRigthjwJswJeT5RT5icvKmCmorsGGoyceuiM3aYcjxO8Qde+8RPG
+fLaadiOWJC1ZYPRigx2uDg5Rdj7LN6C0juuBvYz2YzgjGqEk1r80e/i27xbI
+Fge6oI+foIdVJ6QV1roZs1DCj5qH5oMzyp9+jQOGSyQr0L9c5oRKYtoF0xaU
+5zBh13cB6aojP7x3qYNQ38b8g4TuMQzJQB/LG5H2UciG73fMdNi8RWZAQm2t
+hIy1VjncF4e08LbgTgeFrLlh+MDLHYFZfP8s7B3dtMHV6lQ7lL3lUf4DVgv1
+6Q==
+  "]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"g", "=", 
+  RowBox[{"FisherMetric", "[", 
+   RowBox[{
+   "distribution", ",", "pdfCoords", ",", "pdfAssumptions", ",", 
+    "pdfIntegrationLimits"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5081613488630505`*^9, 3.5081615368778048`*^9}, {
+  3.5083830684124565`*^9, 3.508383074687815*^9}, {3.5083869167145667`*^9, 
+  3.5083869186906796`*^9}, {3.5083871652537823`*^9, 3.508387179778613*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      TemplateBox[{"1","a"},
+       "PolyGamma2"], 
+      RowBox[{"-", 
+       FractionBox["1", "b"]}]},
+     {
+      RowBox[{"-", 
+       FractionBox["1", "b"]}], 
+      FractionBox["a", 
+       SuperscriptBox["b", "2"]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5081615670185285`*^9, 3.5081615773241177`*^9}, 
+   3.5081616170403895`*^9, 3.5083787012056665`*^9, 3.5083787438821073`*^9, 
+   3.5083787757789316`*^9, 3.5083831470889564`*^9, 3.508386922335888*^9, 
+   3.5083873306542425`*^9, {3.5083877157582693`*^9, 3.5083877303671045`*^9}, 
+   3.5083883811093254`*^9, 3.5083886159697585`*^9, 3.508389766914589*^9, 
+   3.5083912103759017`*^9, 3.5083914161716723`*^9, 3.5083914562229633`*^9, 
+   3.5083928996825247`*^9, 3.5083932910139074`*^9, 3.508393321550654*^9, 
+   3.508393353383475*^9, 3.508393547578582*^9, 3.508393767416156*^9, 
+   3.5083941343491435`*^9, 3.5083942550420465`*^9, 3.508394715141363*^9, 
+   3.508395025356106*^9, 3.5083952061444464`*^9, 3.5083952641557646`*^9, 
+   3.5083952973226614`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[CapitalGamma]", "=", 
+  RowBox[{"LeviCivitaCoefficients", "[", 
+   RowBox[{"g", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508161636207486*^9, 3.5081616667522326`*^9}, {
+  3.508383080261134*^9, 3.5083830961910453`*^9}, {3.508387210998399*^9, 
+  3.5083872118424473`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]], ",", 
+        FractionBox[
+         RowBox[{"b", " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"2", " ", "b"}]}]], ",", 
+        FractionBox[
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"2", " ", "b"}]}]], ",", 
+        FractionBox[
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["a", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["b", "2"]}], "-", 
+          RowBox[{"2", " ", "a", " ", 
+           SuperscriptBox["b", "2"], " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}]}]], ",", 
+        FractionBox["1", 
+         RowBox[{
+          FractionBox["b", 
+           RowBox[{
+            RowBox[{"2", " ", "a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}]], "-", "b"}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.5081616682743196`*^9, 3.5081628871770372`*^9, 
+  3.508378780015174*^9, 3.508383149651103*^9, 3.5083873336294127`*^9, 
+  3.50838773046011*^9, 3.508388381206331*^9, 3.508388616541791*^9, 
+  3.5083897686916904`*^9, 3.5083912106689186`*^9, 3.508391417264735*^9, 
+  3.508391456358971*^9, 3.5083928998215322`*^9, 3.50839329105891*^9, 
+  3.50839332270372*^9, 3.508393353427477*^9, 3.508393547612584*^9, 
+  3.508393767452158*^9, 3.5083947152943716`*^9, 3.5083952653208313`*^9, 
+  3.5083952979516973`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[CapitalGamma]\[Alpha]", "=", 
+  RowBox[{"AlphaCoefficients", "[", 
+   RowBox[{
+   "distribution", ",", "g", ",", "pdfCoords", ",", "pdfAssumptions", ",", 
+    "pdfIntegrationLimits"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508161677686858*^9, 3.5081617160500526`*^9}, {
+   3.5081617569623923`*^9, 3.508161768299041*^9}, {3.5081618312306404`*^9, 
+   3.508161832937738*^9}, {3.508163468308276*^9, 3.5081634695833488`*^9}, {
+   3.50816371157419*^9, 3.5081637119222097`*^9}, {3.508164050825594*^9, 
+   3.5081640527947063`*^9}, {3.5081640942480774`*^9, 
+   3.5081641266599317`*^9}, {3.5081642572334003`*^9, 3.5081642578254337`*^9}, 
+   3.5083830862114744`*^9, {3.5083869321874514`*^9, 3.508386933402521*^9}, {
+   3.508387222609063*^9, 3.508387238624979*^9}, {3.5083882889110518`*^9, 
+   3.5083882891540656`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "-", 
+          RowBox[{"a", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]], ",", 
+        FractionBox[
+         RowBox[{"b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "a", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], "-", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"]}], ")"}], "2"], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], ")"}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"1", "-", "\[Alpha]"}], 
+          RowBox[{
+           RowBox[{"2", " ", "b"}], "-", 
+           RowBox[{"2", " ", "a", " ", "b", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}]}]]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"1", "-", "\[Alpha]"}], 
+          RowBox[{
+           RowBox[{"2", " ", "b"}], "-", 
+           RowBox[{"2", " ", "a", " ", "b", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}]}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}], 
+         RowBox[{"2", " ", 
+          SuperscriptBox["b", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "\[Alpha]"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "+", 
+          RowBox[{"2", " ", "a", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "+", "1"}], 
+         RowBox[{"2", " ", "b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5081618059461946`*^9, 3.508161876063205*^9, 3.508161940971917*^9, 
+   3.508162033113188*^9, 3.5081624585565214`*^9, 3.5081628694340224`*^9, 
+   3.508163288855012*^9, 3.508163473464571*^9, 3.508163571611184*^9, {
+   3.5081636066681895`*^9, 3.508163626899347*^9}, 3.50816370423577*^9, 
+   3.5081637543636374`*^9, 3.5081639585073137`*^9, 3.508164057138955*^9, 
+   3.508164098924345*^9, 3.5081641291120715`*^9, 3.508164283362894*^9, 
+   3.5083788220045757`*^9, 3.508383176102616*^9, 3.50838695715788*^9, 
+   3.5083873656682453`*^9, 3.508387992232083*^9, 3.5083882797145257`*^9, 
+   3.5083883580030036`*^9, 3.5083884155352945`*^9, 3.5083891923877277`*^9, 
+   3.508390428630437*^9, 3.5083912127510376`*^9, 3.508391427214304*^9, 
+   3.5083926050546727`*^9, 3.508393291100912*^9, 3.50839332375078*^9, 
+   3.5083933543255286`*^9, 3.5083935488546553`*^9, 3.5083937686882286`*^9, 
+   3.508394730005213*^9, 3.5083952841769094`*^9, 3.508398587551852*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[CapitalGamma]\[Alpha]", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "0"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[CapitalGamma]\[Alpha]", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[CapitalGamma]\[Alpha]", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    RowBox[{"-", "1"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.5083869726087637`*^9, 3.5083869903547783`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "+", 
+          RowBox[{"a", " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]], ",", 
+        FractionBox[
+         RowBox[{"b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], "-", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"]}], ")"}], "2"]}], "+", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}], ")"}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"2", " ", "b"}], "-", 
+           RowBox[{"2", " ", "a", " ", "b", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"2", " ", "b"}], "-", 
+           RowBox[{"2", " ", "a", " ", "b", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}], 
+         RowBox[{"2", " ", 
+          SuperscriptBox["b", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "+", "1"}], 
+         RowBox[{"2", " ", "b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386991030817*^9, 3.50838737029251*^9, 
+  3.5083884156403008`*^9, 3.5083891925767384`*^9, 3.5083904288104467`*^9, 
+  3.508391212861044*^9, 3.508393291162916*^9, 3.5083933240197954`*^9, 
+  3.508393354453536*^9, 3.508393548953661*^9, 3.5083937688232365`*^9, 
+  3.508394730138221*^9, 3.5083985888869286`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"2", " ", "a", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"log", "(", "b", ")"}], "-", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], ")"}], "2"]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]], ",", 
+        FractionBox[
+         RowBox[{"2", " ", "a", " ", "b", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"log", "(", "b", ")"}], "-", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], ")"}], "2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}]}], ")"}]}], 
+         RowBox[{"2", " ", 
+          SuperscriptBox["b", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}]}], 
+         RowBox[{"2", " ", "b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386991030817*^9, 3.50838737029251*^9, 
+  3.5083884156403008`*^9, 3.5083891925767384`*^9, 3.5083904288104467`*^9, 
+  3.508391212861044*^9, 3.508393291162916*^9, 3.5083933240197954`*^9, 
+  3.508393354453536*^9, 3.508393548953661*^9, 3.5083937688232365`*^9, 
+  3.508394730138221*^9, 3.5083985890409374`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "+", 
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]], ",", 
+        FractionBox[
+         RowBox[{"b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], "-", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"]}], ")"}], "2"]}], "+", 
+            RowBox[{"2", " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], ")"}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "2"}]]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["2", 
+          RowBox[{
+           RowBox[{"2", " ", "b"}], "-", 
+           RowBox[{"2", " ", "a", " ", "b", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["2", 
+          RowBox[{
+           RowBox[{"2", " ", "b"}], "-", 
+           RowBox[{"2", " ", "a", " ", "b", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}], ",", 
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], 
+          RowBox[{"2", "-", 
+           RowBox[{"2", " ", "a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}]}]]}]}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "-", "2"}], ")"}]}], 
+         RowBox[{"2", " ", 
+          SuperscriptBox["b", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]], ",", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"4", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "+", "2"}], 
+         RowBox[{"2", " ", "b", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.508386991030817*^9, 3.50838737029251*^9, 
+  3.5083884156403008`*^9, 3.5083891925767384`*^9, 3.5083904288104467`*^9, 
+  3.508391212861044*^9, 3.508393291162916*^9, 3.5083933240197954`*^9, 
+  3.508393354453536*^9, 3.508393548953661*^9, 3.5083937688232365`*^9, 
+  3.508394730138221*^9, 3.508398589144943*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Ruplijk", "=", 
+  RowBox[{"RiemannTensor1", "[", 
+   RowBox[{"\[CapitalGamma]\[Alpha]", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508378845277907*^9, 3.5083789120567265`*^9}, {
+   3.5083817928304973`*^9, 3.5083817991808605`*^9}, {3.5083818674217634`*^9, 
+   3.508381910795244*^9}, 3.5083831145890975`*^9, 3.508387248768559*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "3"], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "3"]}], "-", 
+            RowBox[{"2", " ", 
+             SuperscriptBox["a", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{"3", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"2", " ", "a", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"3", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{
+                    SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "4"}], ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"]}], "-", "8"}], ")"}], " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"8", " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"log", "(", "b", ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], 
+                  "+", "4"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", "b", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "2"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "3"], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "3"]}], "+", 
+            RowBox[{"2", " ", 
+             SuperscriptBox["a", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{"3", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "a", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"3", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{
+                    SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "4"}], ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"]}], "+", "8"}], ")"}], " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{"8", " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"log", "(", "b", ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], 
+                  "+", "4"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", "b", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "2"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               SuperscriptBox["a", "2"], " ", 
+               SuperscriptBox[
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], "3"]}], "+", 
+              RowBox[{"2", " ", "a", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{"3", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+               SuperscriptBox[
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], "2"]}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                  TemplateBox[{"2","a"},
+                   "PolyGamma2"], " ", 
+                  SuperscriptBox["a", "2"]}], "+", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"log", "(", "b", ")"}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "2"}], " ", "\[Alpha]"}], "-", 
+                    RowBox[{"3", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+                  "a"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "-", 
+                    RowBox[{"a", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+                  TemplateBox[{"1","a"},
+                   "PolyGamma2"], " ", "a"}], "+", 
+                 RowBox[{"5", " ", "a"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                 "6"}], ")"}], " ", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], "-", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               SuperscriptBox["a", "2"], " ", 
+               SuperscriptBox[
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], "2"]}], "+", 
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"2", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", "3"}], ")"}]}], "-", 
+                 RowBox[{"a", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", "5"}], ")"}]}], "+", 
+                 RowBox[{"2", " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}]}], 
+                ")"}]}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  SuperscriptBox["\[Alpha]", "2"]}], "+", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+                 RowBox[{"a", " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"3", " ", "a"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                    "2"}], ")"}], " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", 
+              RowBox[{"a", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+               TemplateBox[{"2","a"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "2"], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+         {
+          FractionBox[
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               SuperscriptBox["a", "2"], " ", 
+               SuperscriptBox[
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], "3"]}], "-", 
+              RowBox[{"2", " ", "a", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{"3", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+               SuperscriptBox[
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], "2"]}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", 
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}]}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                  TemplateBox[{"2","a"},
+                   "PolyGamma2"], " ", 
+                  SuperscriptBox["a", "2"]}], "-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", "5"}], ")"}], " ", "a"}], "+", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"log", "(", "b", ")"}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", "1"}], ")"}]}], "+", 
+                    RowBox[{"3", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}]}], ")"}], " ", "a"}], 
+                 "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"3", " ", "a"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                    "2"}], ")"}], " ", 
+                  TemplateBox[{"1","a"},
+                   "PolyGamma2"], " ", "a"}], "+", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               SuperscriptBox["a", "2"], " ", 
+               SuperscriptBox[
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], "2"]}], "+", 
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", 
+                  RowBox[{"log", "(", "b", ")"}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+                  "a"}], "+", 
+                 RowBox[{"5", " ", "a"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                 "6"}], ")"}]}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 SuperscriptBox["\[Alpha]", "2"], "-", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+                 RowBox[{"a", " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "-", 
+                    RowBox[{"a", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "+", 
+              RowBox[{"a", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+               TemplateBox[{"2","a"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "2"], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]},
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "4"}], " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"4", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", " ", "\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "-", 
+                  RowBox[{"\[Alpha]", " ", 
+                   TemplateBox[{"0","a"},
+                    "PolyGamma2"]}], "+", "2"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             SuperscriptBox[
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"]}], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"log", "(", "b", ")"}], "-", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{
+                    SuperscriptBox["log", "2"], "(", "b", ")"}]}], "-", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", 
+                  RowBox[{
+                   TemplateBox[{"0","a"},
+                    "PolyGamma2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", 
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    TemplateBox[{"0","a"},
+                    "PolyGamma2"]}], "+", "1"}], ")"}]}], "-", "4"}], 
+                 ")"}]}]}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], "-", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"4", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"4", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "2"}], " ", "\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", 
+                  RowBox[{"\[Alpha]", " ", 
+                   TemplateBox[{"0","a"},
+                    "PolyGamma2"]}], "-", "2"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}], " ", 
+             SuperscriptBox[
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"log", "(", "b", ")"}], "-", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{
+                    SuperscriptBox["log", "2"], "(", "b", ")"}]}], "-", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", 
+                  RowBox[{
+                   TemplateBox[{"0","a"},
+                    "PolyGamma2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", 
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    TemplateBox[{"0","a"},
+                    "PolyGamma2"]}], "+", "1"}], ")"}]}], "-", "4"}], ")"}]}],
+                "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"]}]}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], "-", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "2"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "3"], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "3"]}], "+", 
+            RowBox[{"2", " ", 
+             SuperscriptBox["a", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{"3", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"3", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{
+                    SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"4", " ", "a"}], "-", "4"}], ")"}], " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], "2"]}], "-", 
+            RowBox[{"4", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "1"}], ")"}], " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"log", "(", "b", ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], 
+                  "+", "1"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "-", 
+               SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", "b", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "3"], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "3"]}], "-", 
+            RowBox[{"2", " ", 
+             SuperscriptBox["a", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{"3", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"6", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{
+                    SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+                    RowBox[{"4", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+                   TemplateBox[{"1","a"},
+                    "PolyGamma2"]}], "-", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                   TemplateBox[{"2","a"},
+                    "PolyGamma2"]}]}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"4", " ", "a"}], "+", "4"}], ")"}], " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{"4", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "1"}], ")"}], " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"log", "(", "b", ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                    RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], 
+                  "+", "1"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", "b", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508378917316027*^9, 3.5083818049861927`*^9, {3.5083818754452224`*^9, 
+   3.5083819115242863`*^9}, 3.508383181542927*^9, 3.5083873780909557`*^9, 
+   3.508388415790309*^9, 3.5083891934687896`*^9, 3.5083904328186765`*^9, 
+   3.5083912129740505`*^9, 3.5083932912889233`*^9, {3.5083933259119034`*^9, 
+   3.508393354542541*^9}, 3.5083935490446663`*^9, 3.5083937689302425`*^9, 
+   3.5083947303482323`*^9, 3.5083987703033047`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Rdownlijk", "=", 
+  RowBox[{"RiemannTensor2", "[", 
+   RowBox[{"\[CapitalGamma]\[Alpha]", ",", "g", ",", "pdfCoords"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083818120065937`*^9, 3.508381820768095*^9}, {
+   3.5083819135744033`*^9, 3.5083819339395685`*^9}, {3.508381965916397*^9, 
+   3.5083820142041593`*^9}, 3.5083831184843206`*^9, {3.5083870883643847`*^9, 
+   3.508387089732463*^9}, {3.5083872539708567`*^9, 3.5083872708628225`*^9}, {
+   3.5083893280764885`*^9, 3.5083893523228755`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+               TemplateBox[{"2","a"},
+                "PolyGamma2"]}], "-", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"log", "(", "b", ")"}], "-", 
+                 TemplateBox[{"0","a"},
+                  "PolyGamma2"]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "\[Alpha]"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", "b", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]]},
+         {
+          FractionBox[
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"log", "(", "b", ")"}], "-", 
+                 TemplateBox[{"0","a"},
+                  "PolyGamma2"]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "\[Alpha]"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+               TemplateBox[{"2","a"},
+                "PolyGamma2"]}]}], ")"}]}], 
+           RowBox[{"4", " ", "b", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "2"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", 
+                SuperscriptBox["\[Alpha]", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+               RowBox[{"a", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"3", " ", "a"}], "+", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                  "2"}], ")"}], " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{"4", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "1"}], ")"}], " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "-", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{
+             TemplateBox[{"0","a"},
+              "PolyGamma2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "-", 
+                  RowBox[{"a", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"4", " ", "a"}], "-", "4"}], ")"}]}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             SuperscriptBox["a", "2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+               RowBox[{"a", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "-", 
+                  RowBox[{"a", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"4", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "1"}], ")"}], " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{
+             TemplateBox[{"0","a"},
+              "PolyGamma2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}]}], " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"3", " ", "a"}], "+", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                  "2"}], ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "-", 
+               RowBox[{"4", " ", "a"}], "+", "4"}], ")"}]}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]},
+     {
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "4"}], " ", 
+             SuperscriptBox["a", "2"], " ", "\[Alpha]", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "2"]}], "+", 
+            RowBox[{"8", " ", "a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}], " ", "a"}], "+", "a"}], 
+                 ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"8", " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "4"}], " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]]},
+         {
+          FractionBox[
+           RowBox[{
+            RowBox[{"4", " ", 
+             SuperscriptBox["a", "2"], " ", "\[Alpha]", " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             SuperscriptBox[
+              TemplateBox[{"0","a"},
+               "PolyGamma2"], "2"]}], "-", 
+            RowBox[{"8", " ", "a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}], " ", "a"}], "+", "a"}], 
+                 ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], "-", 
+            RowBox[{"8", " ", "a", " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"4", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}], " ", 
+             TemplateBox[{"1","a"},
+              "PolyGamma2"]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", 
+               RowBox[{"a", " ", 
+                SuperscriptBox["\[Alpha]", "2"]}]}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          FractionBox[
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}]}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "+", 
+              RowBox[{"2", " ", "a", " ", 
+               RowBox[{"log", "(", "b", ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], "+", 
+              RowBox[{"2", " ", "a", " ", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "\[Alpha]"}], "-", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], "+", "1"}], ")"}]}]}], ")"}]}], 
+           RowBox[{"4", " ", 
+            SuperscriptBox["b", "3"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", "1"}], ")"}]}]]},
+         {
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"a", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], "-", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}]}], " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "+", 
+               RowBox[{"2", " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "+", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], "+", 
+               RowBox[{"2", " ", "a", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", "\[Alpha]"}], "-", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}], "+", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   TemplateBox[{"0","a"},
+                    "PolyGamma2"]}], "+", "1"}], ")"}]}]}], ")"}]}], 
+            RowBox[{"4", " ", 
+             SuperscriptBox["b", "3"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", "1"}], ")"}]}]]}], "0"}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508382017140327*^9, 3.5083831871592484`*^9, 3.508387383037239*^9, 
+   3.5083884177064185`*^9, 3.5083892377963247`*^9, {3.5083893353869066`*^9, 
+   3.50838935327293*^9}, 3.5083904338597355`*^9, 3.508391213027053*^9, 
+   3.5083932913579273`*^9, {3.508393327368987*^9, 3.508393354584543*^9}, 
+   3.508393549081668*^9, 3.508393768972245*^9, 3.508394730428237*^9, 
+   3.5083988169779744`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Rij", "=", 
+  RowBox[{"RicciTensor", "[", 
+   RowBox[{"Ruplijk", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083800837837453`*^9, 3.5083801219669294`*^9}, 
+   3.5083831292249346`*^9, {3.5083832180520153`*^9, 3.5083832435284724`*^9}, 
+   3.508387275939113*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox[
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"4", " ", 
+            RowBox[{"log", "(", "b", ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"\[Alpha]", " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+            SuperscriptBox["a", "2"]}], "+", 
+           RowBox[{"4", " ", 
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "2"}], " ", "\[Alpha]", " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "+", 
+              RowBox[{"\[Alpha]", " ", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], "-", "2"}], ")"}], " ", 
+            SuperscriptBox["a", "2"]}], "-", 
+           SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}], " ", 
+         SuperscriptBox[
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], "2"]}], "+", 
+        RowBox[{"a", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+               RowBox[{
+                SuperscriptBox["log", "2"], "(", "b", ")"}]}], "-", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "+", 
+              RowBox[{
+               TemplateBox[{"0","a"},
+                "PolyGamma2"], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "-", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], "+", "1"}], ")"}]}], "-", "4"}], ")"}]}], 
+           "-", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}]}], ")"}], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"log", "(", "b", ")"}], "-", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], ")"}], " ", 
+         TemplateBox[{"2","a"},
+          "PolyGamma2"]}]}], 
+       RowBox[{"4", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], 
+      FractionBox[
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", 
+         SuperscriptBox["a", "3"], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], "3"]}], "-", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["a", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", 
+           RowBox[{"3", " ", 
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], "2"]}], "+", 
+        RowBox[{"a", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", "a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"3", " ", 
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+               RowBox[{
+                SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "+", "4"}], ")"}], " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}], "-", "8"}], ")"}], " ", 
+         TemplateBox[{"0","a"},
+          "PolyGamma2"]}], "+", 
+        RowBox[{"8", " ", "a", " ", 
+         RowBox[{"log", "(", "b", ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", 
+            RowBox[{"log", "(", "b", ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], "+", 
+              "4"}], ")"}], " ", 
+            SuperscriptBox["a", "2"]}], "+", 
+           SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "+", 
+        RowBox[{"a", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+         TemplateBox[{"2","a"},
+          "PolyGamma2"]}]}], 
+       RowBox[{"4", " ", "b", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]},
+     {
+      FractionBox[
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", 
+         SuperscriptBox["a", "3"], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], "3"]}], "-", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["a", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", 
+           RowBox[{"3", " ", 
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], "2"]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"6", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{
+                   SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+                 RowBox[{"4", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+               TemplateBox[{"1","a"},
+                "PolyGamma2"]}], "-", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+               TemplateBox[{"2","a"},
+                "PolyGamma2"]}]}], ")"}], " ", 
+            SuperscriptBox["a", "2"]}], "-", 
+           RowBox[{"4", " ", "a"}], "+", "4"}], ")"}], " ", 
+         TemplateBox[{"0","a"},
+          "PolyGamma2"]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", 
+         SuperscriptBox["a", "2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], "2"]}], "+", 
+        RowBox[{"4", " ", 
+         RowBox[{"(", 
+          RowBox[{"a", "-", "1"}], ")"}], " ", 
+         RowBox[{"log", "(", "b", ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", 
+            RowBox[{"log", "(", "b", ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"log", "(", "b", ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}], "+", 
+              "1"}], ")"}], " ", 
+            SuperscriptBox["a", "2"]}], "-", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+           SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "+", 
+        RowBox[{"a", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+         TemplateBox[{"2","a"},
+          "PolyGamma2"]}]}], 
+       RowBox[{"4", " ", "b", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]], 
+      FractionBox[
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "2"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", 
+           SuperscriptBox["a", "2"], " ", 
+           SuperscriptBox[
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], "3"]}], "+", 
+          RowBox[{"2", " ", "a", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "+", 
+             RowBox[{"3", " ", 
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+           SuperscriptBox[
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], "2"]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+              TemplateBox[{"2","a"},
+               "PolyGamma2"], " ", 
+              SuperscriptBox["a", "2"]}], "+", 
+             RowBox[{"2", " ", 
+              RowBox[{"log", "(", "b", ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "2"}], " ", "\[Alpha]"}], "-", 
+                RowBox[{"3", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                 RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}], " ", 
+              "a"}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "-", 
+                RowBox[{"a", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+              TemplateBox[{"1","a"},
+               "PolyGamma2"], " ", "a"}], "+", 
+             RowBox[{"5", " ", "a"}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", "6"}], 
+            ")"}], " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", 
+           SuperscriptBox["a", "2"], " ", 
+           SuperscriptBox[
+            TemplateBox[{"1","a"},
+             "PolyGamma2"], "2"]}], "+", 
+          RowBox[{
+           RowBox[{"log", "(", "b", ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Alpha]", "+", "3"}], ")"}]}], "-", 
+             RowBox[{"a", " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Alpha]", "+", "5"}], ")"}]}], "+", 
+             RowBox[{"2", " ", "a", " ", 
+              RowBox[{"log", "(", "b", ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"\[Alpha]", "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                 RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}]}]}], 
+            ")"}]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              SuperscriptBox["\[Alpha]", "2"]}], "+", 
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+             RowBox[{"a", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"3", " ", "a"}], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "-", 
+                "2"}], ")"}], " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "+", "1"}], ")"}], " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"a", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}]}], ")"}]}], 
+       RowBox[{"4", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", "1"}], ")"}], "2"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5083801243480654`*^9, 3.5083801398829536`*^9}, 
+   3.508380259191778*^9, 3.5083803540952063`*^9, 3.508380385859023*^9, 
+   3.50838062655479*^9, 3.508380682607996*^9, 3.5083808406640368`*^9, 
+   3.508380951548379*^9, 3.508381049288969*^9, 3.5083811262663717`*^9, 
+   3.5083831910954733`*^9, {3.508383229983698*^9, 3.5083832442965164`*^9}, 
+   3.508387388236536*^9, 3.508388417841426*^9, 3.508389362028431*^9, 
+   3.508390434614779*^9, 3.508391213108058*^9, 3.508393291432931*^9, {
+   3.5083933275069942`*^9, 3.508393354648547*^9}, 3.5083935491216707`*^9, 
+   3.508393769010247*^9, 3.5083947304812403`*^9, 3.5083988262855067`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"R", "=", 
+  RowBox[{"ScalarCurvature", "[", 
+   RowBox[{"Rij", ",", "g", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083827350573893`*^9, 3.5083827629909873`*^9}, {
+   3.508382811539764*^9, 3.5083828142109165`*^9}, 3.5083831362843385`*^9, {
+   3.5083835339340825`*^9, 3.508383534684126*^9}, 3.508387282017461*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"a", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"4", " ", 
+            SuperscriptBox["a", "2"], " ", 
+            RowBox[{"log", "(", "b", ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"\[Alpha]", " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}]}], "+", 
+           RowBox[{"4", " ", 
+            SuperscriptBox["a", "2"], " ", 
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"\[Alpha]", " ", 
+               TemplateBox[{"0","a"},
+                "PolyGamma2"]}], "-", 
+              RowBox[{"2", " ", "\[Alpha]", " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}], "-", 
+           SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}]}], "+", 
+        RowBox[{"a", " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               TemplateBox[{"0","a"},
+                "PolyGamma2"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                   RowBox[{"log", "(", "b", ")"}]}]}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                  TemplateBox[{"0","a"},
+                   "PolyGamma2"]}], "+", "\[Alpha]", "+", "1"}], ")"}]}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+               RowBox[{
+                SuperscriptBox["log", "2"], "(", "b", ")"}]}], "-", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "-", "4"}], ")"}]}], "-", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}], " ", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}]}], ")"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+         TemplateBox[{"2","a"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"log", "(", "b", ")"}], "-", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], ")"}]}]}], ")"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"4", " ", 
+      SuperscriptBox["b", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         SuperscriptBox["b", "2"]], "-", 
+        FractionBox["1", 
+         SuperscriptBox["b", "2"]]}], ")"}]}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"a", " ", 
+      TemplateBox[{"1","a"},
+       "PolyGamma2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         TemplateBox[{"0","a"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", 
+            SuperscriptBox["a", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}], "+", 
+           RowBox[{"2", " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"3", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{"log", "(", "b", ")"}]}]}], "-", 
+              RowBox[{"2", " ", "\[Alpha]"}], "+", "2"}], ")"}]}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "+", 
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "-", 
+              RowBox[{"a", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}], " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "+", 
+           RowBox[{"5", " ", "a"}], "-", "6"}], ")"}]}], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", 
+         SuperscriptBox["a", "2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], "3"]}], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{"a", "-", "2"}], ")"}], " ", 
+         SuperscriptBox["a", "2"], " ", 
+         SuperscriptBox[
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], "2"]}], "+", 
+        RowBox[{
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", "\[Alpha]"}], "+", 
+              RowBox[{"3", " ", "a"}], "-", "2"}], ")"}], " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "+", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "-", 
+           SuperscriptBox["\[Alpha]", "2"], "+", "1"}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"log", "(", "b", ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+               RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", "1"}], 
+             ")"}]}], "-", 
+           RowBox[{"a", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Alpha]", "+", "5"}], ")"}]}], "+", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[Alpha]", "+", "3"}], ")"}]}]}], ")"}]}], "+", 
+        RowBox[{"2", " ", "a", " ", 
+         SuperscriptBox[
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", "1"}], 
+          ")"}]}], "-", 
+        RowBox[{"a", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+         TemplateBox[{"2","a"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+            RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", "1"}], 
+          ")"}]}]}], ")"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"4", " ", 
+      SuperscriptBox["b", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         SuperscriptBox["b", "2"]], "-", 
+        FractionBox["1", 
+         SuperscriptBox["b", "2"]]}], ")"}]}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", "2"}], ")"}], " ", 
+       SuperscriptBox["a", "3"], " ", 
+       TemplateBox[{"1","a"},
+        "PolyGamma2"], " ", 
+       SuperscriptBox[
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], "3"]}], "+", 
+      RowBox[{
+       TemplateBox[{"1","a"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["a", "2"], " ", 
+           RowBox[{"log", "(", "b", ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                 RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", 
+                "1"}], ")"}]}], "+", "4"}], ")"}]}]}], "+", 
+         SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["a", "2"], " ", 
+       TemplateBox[{"1","a"},
+        "PolyGamma2"], " ", 
+       SuperscriptBox[
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          RowBox[{"(", 
+           RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+          RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", "1"}], 
+        ")"}]}], "+", 
+      RowBox[{"a", " ", 
+       TemplateBox[{"0","a"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+             RowBox[{
+              SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+             RowBox[{"log", "(", "b", ")"}]}], "+", "4"}], ")"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], "-", "8"}], ")"}]}], "+", 
+      RowBox[{"a", " ", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+       TemplateBox[{"2","a"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+          RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "+", "1"}], 
+        ")"}]}], "+", 
+      RowBox[{"8", " ", "a", " ", 
+       RowBox[{"log", "(", "b", ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"4", " ", 
+      SuperscriptBox["b", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         SuperscriptBox["b", "2"]], "-", 
+        FractionBox["1", 
+         SuperscriptBox["b", "2"]]}], ")"}]}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", "2"}], ")"}], " ", 
+       SuperscriptBox["a", "3"], " ", 
+       TemplateBox[{"1","a"},
+        "PolyGamma2"], " ", 
+       SuperscriptBox[
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], "3"]}], "+", 
+      RowBox[{
+       TemplateBox[{"1","a"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["a", "2"], " ", 
+           RowBox[{"log", "(", "b", ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                 RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", 
+                "1"}], ")"}]}], "+", "1"}], ")"}]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{"a", "-", "2"}], ")"}], " ", "a"}], "+", 
+         SuperscriptBox["\[Alpha]", "2"], "-", "1"}], ")"}]}], "+", 
+      RowBox[{
+       TemplateBox[{"0","a"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["a", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             TemplateBox[{"1","a"},
+              "PolyGamma2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"6", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+                RowBox[{
+                 SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+               RowBox[{"4", " ", 
+                RowBox[{"(", 
+                 RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "+", "2"}], ")"}]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"a", "-", "2"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+             TemplateBox[{"2","a"},
+              "PolyGamma2"]}]}], ")"}]}], "-", 
+         RowBox[{"4", " ", "a"}], "+", "4"}], ")"}]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["a", "2"], " ", 
+       TemplateBox[{"1","a"},
+        "PolyGamma2"], " ", 
+       SuperscriptBox[
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          RowBox[{"(", 
+           RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+          RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", "1"}], 
+        ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", "2"}], ")"}], " ", 
+       SuperscriptBox["a", "2"], " ", 
+       SuperscriptBox[
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], "2"]}], "+", 
+      RowBox[{"a", " ", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "+", "1"}], ")"}], " ", 
+       TemplateBox[{"2","a"},
+        "PolyGamma2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+          RowBox[{"log", "(", "b", ")"}]}], "+", "\[Alpha]", "-", "1"}], 
+        ")"}]}], "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", "1"}], ")"}], " ", 
+       RowBox[{"log", "(", "b", ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"4", " ", 
+      SuperscriptBox["b", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], 
+         SuperscriptBox["b", "2"]], "-", 
+        FractionBox["1", 
+         SuperscriptBox["b", "2"]]}], ")"}]}], ")"}]}]}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5083827665421906`*^9, 3.508382815361983*^9, 3.5083832522259703`*^9, 
+   3.5083835353721647`*^9, 3.5083873906026716`*^9, 3.5083884178884287`*^9, 
+   3.5083893658196473`*^9, 3.5083904347117844`*^9, 3.5083912131500607`*^9, 
+   3.508393291482934*^9, {3.508393327561998*^9, 3.50839335470055*^9}, 
+   3.508393549160672*^9, 3.50839376905425*^9, 3.5083947305312433`*^9, 
+   3.5083988279716034`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"R", "\[Equal]", "0"}], ",", 
+   RowBox[{"{", "\[Alpha]", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.508389579270856*^9, 3.508389592208596*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Alpha]", "\[Rule]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "3"]}], "-", 
+         RowBox[{
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "3"]}], "-", 
+         RowBox[{"4", " ", 
+          RowBox[{
+           SuperscriptBox["log", "2"], "(", "b", ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "-", 
+         RowBox[{"4", " ", 
+          SuperscriptBox[
+           TemplateBox[{"0","a"},
+            "PolyGamma2"], "2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "-", 
+         RowBox[{
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{"8", " ", 
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{"2", " ", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", "a"}], "-", 
+         RowBox[{"2", " ", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", "a"}], "-", 
+         RowBox[{"\[Sqrt]", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"log", "(", "b", ")"}]}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{"4", " ", 
+                RowBox[{
+                 SuperscriptBox["log", "2"], "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"4", " ", 
+                SuperscriptBox[
+                 TemplateBox[{"0","a"},
+                  "PolyGamma2"], "2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"8", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}]}], ")"}], "2"], "-", 
+            RowBox[{"4", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", 
+               RowBox[{"2", " ", "a", " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"]}]}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                SuperscriptBox[
+                 TemplateBox[{"1","a"},
+                  "PolyGamma2"], "2"], " ", 
+                SuperscriptBox["a", "3"]}], "-", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{"4", " ", 
+                SuperscriptBox[
+                 TemplateBox[{"1","a"},
+                  "PolyGamma2"], "2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"11", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"11", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"12", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", "a"}], "+", 
+               RowBox[{"12", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", "a"}], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "-", 
+               RowBox[{"4", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"4", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", 
+               RowBox[{"4", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"]}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}]}], ")"}]}]}], ")"}]}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", 
+           RowBox[{"2", " ", "a", " ", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}]}], ")"}]}], ")"}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Alpha]", "\[Rule]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "3"]}], "-", 
+         RowBox[{
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "3"]}], "-", 
+         RowBox[{"4", " ", 
+          RowBox[{
+           SuperscriptBox["log", "2"], "(", "b", ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "-", 
+         RowBox[{"4", " ", 
+          SuperscriptBox[
+           TemplateBox[{"0","a"},
+            "PolyGamma2"], "2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "-", 
+         RowBox[{
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{"8", " ", 
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{"2", " ", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"], " ", 
+          SuperscriptBox["a", "2"]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{"log", "(", "b", ")"}], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", "a"}], "-", 
+         RowBox[{"2", " ", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"], " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"], " ", "a"}], "+", 
+         RowBox[{"\[Sqrt]", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"log", "(", "b", ")"}]}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{"4", " ", 
+                RowBox[{
+                 SuperscriptBox["log", "2"], "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"4", " ", 
+                SuperscriptBox[
+                 TemplateBox[{"0","a"},
+                  "PolyGamma2"], "2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"8", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}]}], ")"}], "2"], "-", 
+            RowBox[{"4", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}], "-", 
+               RowBox[{"2", " ", "a", " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"]}]}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", 
+                SuperscriptBox[
+                 TemplateBox[{"1","a"},
+                  "PolyGamma2"], "2"], " ", 
+                SuperscriptBox["a", "3"]}], "-", 
+               RowBox[{
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "3"]}], "+", 
+               RowBox[{"4", " ", 
+                SuperscriptBox[
+                 TemplateBox[{"1","a"},
+                  "PolyGamma2"], "2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"11", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"11", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", 
+                SuperscriptBox["a", "2"]}], "-", 
+               RowBox[{"12", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", "a"}], "+", 
+               RowBox[{"12", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", "a"}], "-", 
+               RowBox[{"2", " ", 
+                RowBox[{"log", "(", "b", ")"}], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"], " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "-", 
+               RowBox[{"4", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"2","a"},
+                 "PolyGamma2"], " ", "a"}], "+", 
+               RowBox[{"4", " ", 
+                RowBox[{"log", "(", "b", ")"}]}], "-", 
+               RowBox[{"4", " ", 
+                TemplateBox[{"0","a"},
+                 "PolyGamma2"]}], "+", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"1","a"},
+                 "PolyGamma2"]}]}], ")"}]}]}], ")"}]}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", 
+            TemplateBox[{"1","a"},
+             "PolyGamma2"]}], "-", 
+           RowBox[{"2", " ", "a", " ", 
+            TemplateBox[{"2","a"},
+             "PolyGamma2"]}]}], ")"}]}], ")"}]}]}], "}"}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5083895931106477`*^9, 3.5083904347817883`*^9, 3.5083912131890626`*^9, 
+   3.5083932915589385`*^9, {3.5083933276240015`*^9, 3.508393354738552*^9}, 
+   3.5083935491956744`*^9, 3.5083937691012526`*^9, 3.508394730581246*^9, 
+   3.5083988286296406`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"geodesics", "=", 
+  RowBox[{"EulerLagrangeEquations", "[", 
+   RowBox[{"\[CapitalGamma]\[Alpha]", ",", "pdfCoords", ",", "t"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083830342004995`*^9, 3.5083830400888367`*^9}, {
+   3.5083832648966947`*^9, 3.5083832882220287`*^9}, {3.5083835542682457`*^9, 
+   3.5083835608446217`*^9}, 3.5083872881328106`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "-", 
+       RowBox[{"2", " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}]}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["b", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "+", "\[Alpha]", "-", "1"}], ")"}]}]}], ")"}], 
+     "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["b", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}], ")"}]}], ",", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}]}], ")"}]}], "+", 
+       RowBox[{"2", " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["b", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "+", 
+          RowBox[{"2", " ", "a", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "-", "\[Alpha]", "+", "1"}], ")"}]}]}], 
+      ")"}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508383303783919*^9, 3.5083835622377014`*^9, 3.508387392554783*^9, 
+   3.5083884182394485`*^9, 3.508389373956113*^9, 3.508390445347393*^9, 
+   3.508391213289068*^9, 3.5083932917049465`*^9, {3.508393328071027*^9, 
+   3.5083933548135567`*^9}, 3.5083935492876797`*^9, 3.5083937691542554`*^9, 
+   3.5083947308242598`*^9, 3.508398843851512*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"geodesics", "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", "0"}], "}"}]}], "//", 
+  "FullSimplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"geodesics", "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "//", 
+  "FullSimplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"geodesics", "/.", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", 
+     RowBox[{"-", "1"}]}], "}"}]}], "//", "FullSimplify"}]}], "Input",
+ CellChangeTimes->{{3.5083835813577952`*^9, 3.5083836127865925`*^9}, {
+  3.508383649049667*^9, 3.5083836563820868`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"2", " ", "b", " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "+", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["b", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}]}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["b", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}], ")"}]}], ",", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", "b", " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "+", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], ")"}]}], "+", 
+       RowBox[{"2", " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["b", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{"a", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], "+", 
+             RowBox[{"2", " ", 
+              TemplateBox[{"1","a"},
+               "PolyGamma2"]}]}], ")"}]}], "+", "1"}], ")"}]}]}], ")"}]}]}], 
+   "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5083836142156744`*^9, 3.5083836571151285`*^9, 3.5083873948229127`*^9, 
+   3.508388418347455*^9, 3.508389383735672*^9, 3.5083904524057965`*^9, 
+   3.508391213352072*^9, 3.5083932933170395`*^9, {3.508393328579056*^9, 
+   3.50839335487356*^9}, 3.508393549338683*^9, 3.508393769195258*^9, 
+   3.5083947308892636`*^9, 3.508398857835311*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"log", "(", "b", ")"}], "-", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["b", "2"], " ", 
+           SuperscriptBox[
+            RowBox[{
+             SuperscriptBox["a", "\[Prime]",
+              MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"log", "(", "b", ")"}], "-", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], ")"}]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           SuperscriptBox[
+            RowBox[{
+             SuperscriptBox["b", "\[Prime]",
+              MultilineFunction->None], "(", "t", ")"}], "2"]}]}], ")"}]}]}], 
+      ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["b", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}], ")"}]}], ",", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"log", "(", "b", ")"}], "-", 
+          TemplateBox[{"0","a"},
+           "PolyGamma2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["b", "2"], " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           SuperscriptBox[
+            RowBox[{
+             SuperscriptBox["a", "\[Prime]",
+              MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"log", "(", "b", ")"}], "-", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], ")"}]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", 
+           SuperscriptBox[
+            RowBox[{
+             SuperscriptBox["b", "\[Prime]",
+              MultilineFunction->None], "(", "t", ")"}], "2"]}]}], ")"}]}], 
+       "+", 
+       RowBox[{"2", " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}]}], ")"}]}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5083836142156744`*^9, 3.5083836571151285`*^9, 3.5083873948229127`*^9, 
+   3.508388418347455*^9, 3.508389383735672*^9, 3.5083904524057965`*^9, 
+   3.508391213352072*^9, 3.5083932933170395`*^9, {3.508393328579056*^9, 
+   3.50839335487356*^9}, 3.508393549338683*^9, 3.508393769195258*^9, 
+   3.5083947308892636`*^9, 3.508398864263679*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"4", " ", "b", " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"2", " ", "a", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"log", "(", "b", ")"}], "-", 
+             TemplateBox[{"0","a"},
+              "PolyGamma2"]}], ")"}], "2"], "+", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["b", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"]}], "-", "2"}], ")"}]}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["b", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}], ")"}]}], ",", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"4", " ", "b", " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{
+         SuperscriptBox["a", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["b", "2"], " ", 
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"log", "(", "b", ")"}], "-", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], ")"}], "2"]}], "+", 
+          TemplateBox[{"2","a"},
+           "PolyGamma2"]}], ")"}]}], "+", 
+       RowBox[{"2", " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", "1"}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["b", "\[Prime]\[Prime]",
+          MultilineFunction->None], "(", "t", ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{
+          SuperscriptBox["b", "\[Prime]",
+           MultilineFunction->None], "(", "t", ")"}], "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", 
+          RowBox[{"a", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"a", "-", "2"}], ")"}], " ", 
+              TemplateBox[{"0","a"},
+               "PolyGamma2"]}], "+", 
+             RowBox[{"4", " ", 
+              TemplateBox[{"1","a"},
+               "PolyGamma2"]}]}], ")"}]}], "+", "2"}], ")"}]}]}], ")"}]}]}], 
+   "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5083836142156744`*^9, 3.5083836571151285`*^9, 3.5083873948229127`*^9, 
+   3.508388418347455*^9, 3.508389383735672*^9, 3.5083904524057965`*^9, 
+   3.508391213352072*^9, 3.5083932933170395`*^9, {3.508393328579056*^9, 
+   3.50839335487356*^9}, 3.508393549338683*^9, 3.508393769195258*^9, 
+   3.5083947308892636`*^9, 3.508398878813511*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"einstein", "=", 
+  RowBox[{"EinsteinTensor", "[", 
+   RowBox[{"Rij", ",", "g", ",", "R", ",", "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.50838401188942*^9, 3.508384056899995*^9}, {
+   3.508384094327135*^9, 3.5083841116001234`*^9}, 3.5083872937451315`*^9}],
+
+Cell[BoxData[
+ FormBox["$Aborted", TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5083840580290594`*^9, 3.5083841122171583`*^9}, 
+   3.5083873975970716`*^9, 3.508388418565468*^9, 3.508389410181185*^9, 
+   3.5083904772462177`*^9, 3.508391214589143*^9, 3.508393293562053*^9, {
+   3.5083933299311333`*^9, 3.5083933549865665`*^9}, 3.5083935494396887`*^9, 
+   3.5083937693292656`*^9, 3.508394730986269*^9, 3.508465661264249*^9, 
+   3.5084657798250303`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"covderiv", "=", 
+  RowBox[{"CovariantDerivative", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b"}], "}"}], ",", "\[CapitalGamma]\[Alpha]", ",", 
+    "pdfCoords"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5083856875002594`*^9, 3.50838572107518*^9}, {
+  3.508386026355641*^9, 3.5083860503710146`*^9}, {3.5083861306136045`*^9, 
+  3.508386132973739*^9}, {3.5083872993204503`*^9, 3.5083873039007125`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["a", "2"], " ", 
+        RowBox[{"log", "(", "b", ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"a", "+", 
+          RowBox[{"2", " ", "b", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "a"}], " ", "b", " ", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}], "+", 
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           SuperscriptBox[
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], "2"]}], "+", 
+          RowBox[{"2", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"a", "+", 
+             RowBox[{"4", " ", "b", " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}]}], 
+         ")"}]}], "-", 
+       RowBox[{"b", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Alpha]", "+", "1"}], ")"}]}]}], ")"}]}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"2", " ", "a", " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "-", "2"}]]}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{
+         TemplateBox[{"1","a"},
+          "PolyGamma2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            SuperscriptBox["a", "2"], " ", "b", " ", 
+            RowBox[{
+             SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+           RowBox[{"a", " ", "\[Alpha]"}], "+", "a", "-", 
+           RowBox[{"b", " ", "\[Alpha]"}], "+", "b"}], ")"}]}]}], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["a", "2"], " ", "b", " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         TemplateBox[{"0","a"},
+          "PolyGamma2"], "2"]}], "+", 
+       RowBox[{"a", " ", "b", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Alpha]", "-", "1"}], ")"}], " ", 
+        TemplateBox[{"2","a"},
+         "PolyGamma2"]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+        RowBox[{"log", "(", "b", ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "a", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "+", "a", "-", "2"}], ")"}]}], 
+       "+", "\[Alpha]", "+", "1"}], ")"}]}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5083860517000904`*^9, 3.5083861342158103`*^9, 3.5083864546871405`*^9, 
+   3.508386579984307*^9, 3.508387399691191*^9, 3.508388418675474*^9, 
+   3.5083894187626753`*^9, 3.5083904810384345`*^9, 3.5083912147621527`*^9, 
+   3.508393293617056*^9, {3.5083933301291447`*^9, 3.508393355027569*^9}, 
+   3.5083935494726906`*^9, 3.508393769370268*^9, 3.5083947310302715`*^9, 
+   3.5084658101337633`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"covderiv", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "0"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"covderiv", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", "1"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"covderiv", "/.", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    RowBox[{"-", "1"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.508386591042939*^9, 3.5083866154463353`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["a", "2"], " ", 
+        RowBox[{"log", "(", "b", ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"a", "+", 
+          RowBox[{"2", " ", "b", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           SuperscriptBox[
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], "2"]}], "+", 
+          RowBox[{"2", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "+", 
+          RowBox[{"a", " ", "b", " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"a", "+", 
+             RowBox[{"4", " ", "b", " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}]}], 
+         ")"}]}], "-", "b"}], ")"}]}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"2", " ", "a", " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "-", "2"}]]}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", 
+        SuperscriptBox["a", "2"], " ", "b", " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         TemplateBox[{"0","a"},
+          "PolyGamma2"], "2"]}], "-", 
+       RowBox[{
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["a", "2"], " ", "b", " ", 
+           RowBox[{
+            SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", "a", "+", 
+          "b"}], ")"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+        RowBox[{"log", "(", "b", ")"}]}], "-", 
+       RowBox[{"a", " ", "b", " ", 
+        TemplateBox[{"2","a"},
+         "PolyGamma2"]}], "+", 
+       RowBox[{"a", " ", 
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "a", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "+", "a", "-", "2"}], ")"}]}], 
+       "+", "1"}], ")"}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508386616194378*^9, 3.5083874019343195`*^9, 3.508388418713476*^9, 
+   3.5083894286382403`*^9, 3.5083904811784425`*^9, 3.508391214806155*^9, 
+   3.508393293672059*^9, {3.508393330413161*^9, 3.5083933550715714`*^9}, 
+   3.5083935495086927`*^9, 3.508393769420271*^9, 3.5083947311552787`*^9, 
+   3.5084658193642917`*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["a", "2"], " ", 
+        RowBox[{"log", "(", "b", ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"a", "+", 
+          RowBox[{"2", " ", "b", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           SuperscriptBox[
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], "2"]}], "+", 
+          RowBox[{"2", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"a", "+", 
+             RowBox[{"4", " ", "b", " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}]}], 
+         ")"}]}], "-", 
+       RowBox[{"2", " ", "b"}]}], ")"}]}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"2", " ", "a", " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "-", "2"}]]}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", 
+        SuperscriptBox["a", "2"], " ", "b", " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         TemplateBox[{"0","a"},
+          "PolyGamma2"], "2"]}], "-", 
+       RowBox[{
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["a", "2"], " ", "b", " ", 
+           RowBox[{
+            SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+          RowBox[{"2", " ", "a"}]}], ")"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+        RowBox[{"log", "(", "b", ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "a", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "+", "a", "-", "2"}], ")"}]}], 
+       "+", "2"}], ")"}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508386616194378*^9, 3.5083874019343195`*^9, 3.508388418713476*^9, 
+   3.5083894286382403`*^9, 3.5083904811784425`*^9, 3.508391214806155*^9, 
+   3.508393293672059*^9, {3.508393330413161*^9, 3.5083933550715714`*^9}, 
+   3.5083935495086927`*^9, 3.508393769420271*^9, 3.5083947311552787`*^9, 
+   3.508465819669309*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", "b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          TemplateBox[{"1","a"},
+           "PolyGamma2"]}], "-", "1"}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["a", "2"], " ", 
+        RowBox[{"log", "(", "b", ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"a", "+", 
+          RowBox[{"2", " ", "b", " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}], "+", 
+       RowBox[{"a", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           SuperscriptBox[
+            TemplateBox[{"0","a"},
+             "PolyGamma2"], "2"]}], "+", 
+          RowBox[{"2", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"]}], "+", 
+          RowBox[{"2", " ", "a", " ", "b", " ", 
+           TemplateBox[{"2","a"},
+            "PolyGamma2"]}], "-", 
+          RowBox[{"a", " ", 
+           TemplateBox[{"0","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"a", "+", 
+             RowBox[{"4", " ", "b", " ", 
+              RowBox[{"log", "(", "b", ")"}]}], "-", "2"}], ")"}]}]}], 
+         ")"}]}]}], ")"}]}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"2", " ", "a", " ", 
+         TemplateBox[{"1","a"},
+          "PolyGamma2"]}], "-", "2"}]]}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", 
+        SuperscriptBox["a", "2"], " ", "b", " ", 
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        SuperscriptBox[
+         TemplateBox[{"0","a"},
+          "PolyGamma2"], "2"]}], "-", 
+       RowBox[{
+        TemplateBox[{"1","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["a", "2"], " ", "b", " ", 
+           RowBox[{
+            SuperscriptBox["log", "2"], "(", "b", ")"}]}], "+", 
+          RowBox[{"2", " ", "b"}]}], ")"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "-", "2"}], ")"}], " ", "a", " ", 
+        RowBox[{"log", "(", "b", ")"}]}], "-", 
+       RowBox[{"2", " ", "a", " ", "b", " ", 
+        TemplateBox[{"2","a"},
+         "PolyGamma2"]}], "+", 
+       RowBox[{"a", " ", 
+        TemplateBox[{"0","a"},
+         "PolyGamma2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "a", " ", "b", " ", 
+           TemplateBox[{"1","a"},
+            "PolyGamma2"], " ", 
+           RowBox[{"log", "(", "b", ")"}]}], "+", "a", "-", "2"}], ")"}]}]}], 
+      ")"}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.508386616194378*^9, 3.5083874019343195`*^9, 3.508388418713476*^9, 
+   3.5083894286382403`*^9, 3.5083904811784425`*^9, 3.508391214806155*^9, 
+   3.508393293672059*^9, {3.508393330413161*^9, 3.5083933550715714`*^9}, 
+   3.5083935495086927`*^9, 3.508393769420271*^9, 3.5083947311552787`*^9, 
+   3.508465819898322*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{510, 515},
+WindowMargins->{{15, Automatic}, {Automatic, 30}},
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (January 30, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 742, 9, 191, "Title"],
+Cell[1312, 33, 107, 1, 49, "Subtitle"],
+Cell[1422, 36, 1342, 36, 132, "Input"],
+Cell[CellGroupData[{
+Cell[2789, 76, 414, 8, 52, "Input"],
+Cell[3206, 86, 1519, 35, 68, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4762, 126, 314, 6, 31, "Input"],
+Cell[5079, 134, 3064, 89, 92, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8180, 228, 836, 14, 52, "Input"],
+Cell[9019, 244, 5745, 157, 92, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14801, 406, 490, 11, 72, "Input"],
+Cell[15294, 419, 4555, 134, 92, "Output"],
+Cell[19852, 555, 3203, 92, 90, "Output"],
+Cell[23058, 649, 4664, 137, 92, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27759, 791, 370, 6, 31, "Input"],
+Cell[28132, 799, 36655, 910, 184, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64824, 1714, 520, 9, 31, "Input"],
+Cell[65347, 1725, 19716, 508, 176, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[85100, 2238, 301, 6, 31, "Input"],
+Cell[85404, 2246, 16330, 440, 98, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101771, 2691, 355, 6, 31, "Input"],
+Cell[102129, 2699, 16446, 476, 890, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[118612, 3180, 209, 5, 31, "Input"],
+Cell[118824, 3187, 18105, 479, 946, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[136966, 3671, 376, 7, 31, "Input"],
+Cell[137345, 3680, 5255, 151, 209, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[142637, 3836, 617, 17, 72, "Input"],
+Cell[143257, 3855, 4831, 140, 209, "Output"],
+Cell[148091, 3997, 3596, 106, 151, "Output"],
+Cell[151690, 4105, 4804, 139, 213, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[156531, 4249, 292, 5, 31, "Input"],
+Cell[156826, 4256, 455, 7, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[157318, 4268, 441, 9, 31, "Input"],
+Cell[157762, 4279, 3554, 102, 200, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[161353, 4386, 443, 11, 72, "Input"],
+Cell[161799, 4399, 3084, 91, 200, "Output"],
+Cell[164886, 4492, 2913, 86, 152, "Output"],
+Cell[167802, 4580, 3091, 91, 199, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

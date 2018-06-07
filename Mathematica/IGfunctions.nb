@@ -1,0 +1,1410 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     48434,       1401]
+NotebookOptionsPosition[     46098,       1323]
+NotebookOutlinePosition[     46477,       1339]
+CellTagsIndexPosition[     46434,       1336]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Information Geometry Functions", "Title",
+ CellChangeTimes->{{3.508376004836443*^9, 3.5083760359092197`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The Fisher Information Metric", "Section",
+ CellChangeTimes->{{3.508376044669721*^9, 3.508376052254155*^9}}],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["l", "\[Xi]"], "=", 
+    RowBox[{
+     RowBox[{"Log", "[", 
+      RowBox[{"p", "(", 
+       RowBox[{"\[Xi]", ";", "x"}], ")"}], "]"}], Cell[""]}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.5083764116357107`*^9, 3.5083764394052987`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["g", "\[Mu]\[Nu]"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     SubscriptBox["E", "\[Xi]"], "[", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Mu]"], 
+       SubscriptBox["l", "\[Xi]"]}], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       SubscriptBox["l", "\[Xi]"]}]}], "]"}]}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     SubscriptBox["\[Integral]", 
+      RowBox[{"x", "\[Element]", "X"}]], 
+     RowBox[{
+      RowBox[{"p", "(", 
+       RowBox[{"\[Xi]", ";", "x"}], ")"}], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Mu]"], 
+       RowBox[{"l", "(", 
+        RowBox[{"\[Xi]", ";", "x"}], ")"}]}], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       RowBox[{"l", "(", 
+        RowBox[{"\[Xi]", ";", "x"}], ")"}]}], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}]}], TraditionalForm]}]]
+}], "Text",
+ CellChangeTimes->{{3.5083760607376404`*^9, 3.508376191145099*^9}, {
+  3.5083763997070284`*^9, 3.5083764075814786`*^9}}],
+
+Cell["But, the expectation value of the score is zero", "Text",
+ CellChangeTimes->{{3.508376528817413*^9, 3.5083765429842234`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["0", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{"E", "[", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[Mu]"], 
+      SubscriptBox["l", "\[Xi]"]}], "]"}]}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{"\[Integral]", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Mu]"], 
+       SubscriptBox["l", "\[Xi]"]}], 
+      RowBox[{"p", "(", 
+       RowBox[{"x", ";", "\[Xi]"}], ")"}], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}]}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     SubscriptBox["\[PartialD]", "\[Nu]"], 
+     RowBox[{"\[Integral]", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["\[PartialD]", "\[Mu]"], 
+        SubscriptBox["l", "\[Xi]"]}], 
+       RowBox[{"p", "(", 
+        RowBox[{"x", ";", "\[Xi]"}], ")"}], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}]}]}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     RowBox[{"\[Integral]", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["\[PartialD]", "\[Mu]"], 
+        RowBox[{
+         SubscriptBox["\[PartialD]", "\[Nu]"], 
+         SubscriptBox["l", "\[Xi]"]}]}], 
+       RowBox[{"p", "(", 
+        RowBox[{"x", ";", "\[Xi]"}], ")"}], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}], "+", 
+     RowBox[{"\[Integral]", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["\[PartialD]", "\[Mu]"], 
+        SubscriptBox["l", "\[Xi]"]}], 
+       RowBox[{
+        SubscriptBox["\[PartialD]", "\[Nu]"], 
+        SubscriptBox["l", "\[Xi]"]}], 
+       RowBox[{"p", "(", 
+        RowBox[{"x", ";", "\[Xi]"}], ")"}], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}]}]}], TraditionalForm]}],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.508376372854492*^9, 3.5083763937656884`*^9}, {
+  3.508376454860183*^9, 3.508376698383112*^9}, {3.5083768240993023`*^9, 
+  3.5083768370120406`*^9}}],
+
+Cell["Thus,", "Text",
+ CellChangeTimes->{{3.508376712269906*^9, 3.508376722957517*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["g", "\[Mu]\[Nu]"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     SubscriptBox["E", "\[Xi]"], "[", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Mu]"], 
+       SubscriptBox["l", "\[Xi]"]}], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       SubscriptBox["l", "\[Xi]"]}]}], "]"}]}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{"-", 
+     RowBox[{
+      SubscriptBox["E", "\[Xi]"], "[", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       RowBox[{
+        SubscriptBox["\[PartialD]", "\[Mu]"], 
+        SubscriptBox["l", "\[Xi]"]}]}], "]"}]}]}], TraditionalForm]}],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.5083767251336412`*^9, 3.508376790620387*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FisherMetric", "[", 
+   RowBox[{"pdf_", ",", "coords__", ",", "assumptions__", ",", "limits__"}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mu", ",", "nu"}], "}"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Assuming", "[", 
+        RowBox[{"assumptions", ",", 
+         RowBox[{"-", 
+          RowBox[{
+           SubsuperscriptBox["\[Integral]", 
+            RowBox[{"limits", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], 
+            RowBox[{"limits", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]], 
+           RowBox[{"pdf", " ", 
+            RowBox[{
+             SubscriptBox["\[PartialD]", 
+              RowBox[{"coords", "[", 
+               RowBox[{"[", "mu", "]"}], "]"}]], 
+             RowBox[{
+              SubscriptBox["\[PartialD]", 
+               RowBox[{"coords", "[", 
+                RowBox[{"[", "nu", "]"}], "]"}]], 
+              RowBox[{"Log", "[", "pdf", "]"}]}]}], 
+            RowBox[{"\[DifferentialD]", "x"}]}]}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"mu", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"nu", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.508376004836443*^9, 3.508376015364045*^9}, {
+  3.5083786311596603`*^9, 3.508378632658746*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Christoffel Symbols of the Levi-Civita Connection", "Section",
+ CellChangeTimes->{{3.5083768992906027`*^9, 3.5083769041838827`*^9}, {
+  3.508377109169607*^9, 3.50837712093728*^9}}],
+
+Cell["\<\
+The Levi-Civita Connection is the metric compatible connection that is \
+calculated directly from the metric.  The Christoffel Symbols for the \
+Levi-Civita connection are\
+\>", "Text",
+ CellChangeTimes->{{3.5083769201467953`*^9, 3.508376948769433*^9}, {
+  3.5083770984819956`*^9, 3.5083771040373135`*^9}, {3.508377134853076*^9, 
+  3.508377147882821*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    SubscriptBox["\[CapitalGamma]", "\[Mu]\[Nu]"], "\[Lambda]"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    RowBox[{
+     SuperscriptBox["g", "\[Lambda]\[Kappa]"], "(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       SubscriptBox["g", "\[Kappa]\[Mu]"]}], "+", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       SubscriptBox["g", "\[Kappa]\[Nu]"]}], "-", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Kappa]"], 
+       SubscriptBox["g", "\[Mu]\[Nu]"]}]}], ")"}]}]}], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.5083769523906403`*^9, 3.5083770885294266`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LeviCivitaCoefficients", "[", 
+   RowBox[{"metric__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mu", ",", "nu", ",", "lambda"}], "}"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"1", "/", "2"}], " ", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Inverse", "[", "metric", "]"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"lambda", ",", "dummy"}], "]"}], "]"}], 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              SubscriptBox["\[PartialD]", 
+               RowBox[{"coords", "[", 
+                RowBox[{"[", "nu", "]"}], "]"}]], 
+              RowBox[{"metric", "[", 
+               RowBox[{"[", 
+                RowBox[{"dummy", ",", "mu"}], "]"}], "]"}]}], "+", 
+             RowBox[{
+              SubscriptBox["\[PartialD]", 
+               RowBox[{"coords", "[", 
+                RowBox[{"[", "mu", "]"}], "]"}]], 
+              RowBox[{"metric", "[", 
+               RowBox[{"[", 
+                RowBox[{"dummy", ",", "nu"}], "]"}], "]"}]}], "-", 
+             RowBox[{
+              SubscriptBox["\[PartialD]", 
+               RowBox[{"coords", "[", 
+                RowBox[{"[", "dummy", "]"}], "]"}]], 
+              RowBox[{"metric", "[", 
+               RowBox[{"[", 
+                RowBox[{"mu", ",", "nu"}], "]"}], "]"}]}]}], ")"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"dummy", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"mu", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"nu", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"lambda", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.508376004836443*^9, 3.508376007799612*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Christoffel Symbols for the \[Alpha]-Connections\
+\>", "Section",
+ CellChangeTimes->{{3.508377320910718*^9, 3.508377329491209*^9}, {
+  3.5083776284393077`*^9, 3.5083776319185066`*^9}}],
+
+Cell["\<\
+In general it is possible to define an infinite number of connections.  The \
+\[Alpha]-connections have the following Christoffel Symbols\
+\>", "Text",
+ CellChangeTimes->{{3.508377334818514*^9, 3.5083773639281783`*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    SubscriptBox["\[CapitalGamma]", "\[Mu]\[Nu]"], 
+    RowBox[{"\[Lambda]", " ", 
+     RowBox[{"(", "\[Alpha]", ")"}]}]], "=", 
+   RowBox[{
+    SubscriptBox["E", "\[Xi]"], "[", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[Mu]"], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       SubscriptBox["l", "\[Xi]"]}]}], "+", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"1", "+", "\[Alpha]"}], "2"], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Mu]"], 
+       SubscriptBox["l", "\[Xi]"]}], 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Nu]"], 
+       SubscriptBox["l", "\[Xi]"]}]}]}], "]"}]}], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.508377373832745*^9, 3.5083774586695976`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AlphaCoefficients", "[", 
+   RowBox[{
+   "pdf_", ",", "metric__", ",", "coords__", ",", "assumptions__", ",", 
+    "limits__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mu", ",", "nu", ",", "lambda", ",", "dummy"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Assuming", "[", 
+         RowBox[{"assumptions", ",", 
+          RowBox[{
+           SubsuperscriptBox["\[Integral]", 
+            RowBox[{"limits", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], 
+            RowBox[{"limits", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]], 
+           RowBox[{"pdf", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  RowBox[{"coords", "[", 
+                   RowBox[{"[", "mu", "]"}], "]"}]], 
+                 RowBox[{
+                  SubscriptBox["\[PartialD]", 
+                   RowBox[{"coords", "[", 
+                    RowBox[{"[", "nu", "]"}], "]"}]], 
+                  RowBox[{"Log", "[", "pdf", "]"}]}]}], "+", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"1", "-", "\[Alpha]"}], ")"}], "/", "2"}], " ", 
+                 RowBox[{
+                  SubscriptBox["\[PartialD]", 
+                   RowBox[{"coords", "[", 
+                    RowBox[{"[", "mu", "]"}], "]"}]], 
+                  RowBox[{"Log", "[", "pdf", "]"}]}], 
+                 RowBox[{
+                  SubscriptBox["\[PartialD]", 
+                   RowBox[{"coords", "[", 
+                    RowBox[{"[", "nu", "]"}], "]"}]], 
+                  RowBox[{"Log", "[", "pdf", "]"}]}]}]}], ")"}], 
+              RowBox[{"(", 
+               RowBox[{
+                SubscriptBox["\[PartialD]", 
+                 RowBox[{"coords", "[", 
+                  RowBox[{"[", "lambda", "]"}], "]"}]], 
+                RowBox[{"Log", "[", "pdf", "]"}]}], ")"}]}], ")"}], 
+            RowBox[{"\[DifferentialD]", "x"}]}]}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"mu", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"nu", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"lambda", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], " ", ".", 
+      RowBox[{"Inverse", "[", "metric", "]"}]}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.508162791454562*^9, 3.5081628027092056`*^9}, {
+   3.508162967383625*^9, 3.5081629932891064`*^9}, {3.508163031605298*^9, 
+   3.508163081496152*^9}, {3.5081631597696285`*^9, 3.508163243438414*^9}, {
+   3.508163320061797*^9, 3.5081633537567244`*^9}, {3.5081634021954947`*^9, 
+   3.5081634521853538`*^9}, {3.508163521498318*^9, 3.5081635225343776`*^9}, 
+   3.5081635938464565`*^9, {3.508163691212025*^9, 3.508163697824404*^9}, {
+   3.5081639320177984`*^9, 3.5081639325238276`*^9}, {3.5081640142355013`*^9, 
+   3.508164039372939*^9}, 3.5081641188494844`*^9, {3.508164204822402*^9, 
+   3.5081642425085573`*^9}, {3.508388069199485*^9, 3.508388097400098*^9}, {
+   3.508388170289267*^9, 3.508388217388961*^9}, {3.5083882598973923`*^9, 
+   3.5083882704769974`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Riemann Curvature Tensor", "Section",
+ CellChangeTimes->{{3.5083776677195544`*^9, 3.5083776726028337`*^9}}],
+
+Cell[TextData[Cell[BoxData[{
+ FormBox[
+  RowBox[{"RiemannTensor1", ":=", 
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox["R", "l"], ")"}], "ijk"], "=", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[PartialD]", "j"], 
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "ik"], "l"]}], "-", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "k"], 
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "ij"], "l"]}], "+", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[CapitalGamma]", "js"], "l"], 
+        SuperscriptBox[
+         SubscriptBox["\[CapitalGamma]", "ik"], "s"]}], "-", 
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[CapitalGamma]", "ks"], "l"], 
+        SuperscriptBox[
+         SubscriptBox["\[CapitalGamma]", "ij"], "s"]}]}], ")"}]}]}]}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{"RiemannTensor2", ":=", 
+   RowBox[{
+    SubscriptBox["R", "lijk"], "=", 
+    RowBox[{
+     SubscriptBox["g", "ls"], 
+     SubscriptBox[
+      RowBox[{"(", 
+       SuperscriptBox["R", "s"], ")"}], "ijk"]}]}]}], TraditionalForm]}],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.5083777723565392`*^9, 3.5083777763177657`*^9}, {
+  3.508377822180389*^9, 3.5083779514857845`*^9}, {3.5083780060399055`*^9, 
+  3.508378027501133*^9}, {3.508381536057811*^9, 3.5083815507556515`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RiemannTensor1", "[", 
+   RowBox[{"coefficients__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"j", ",", "i", ",", "k", ",", "l", ",", "dummy"}], "}"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SubscriptBox["\[PartialD]", 
+          RowBox[{"coords", "[", 
+           RowBox[{"[", "j", "]"}], "]"}]], 
+         RowBox[{"coefficients", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "k", ",", "l"}], "]"}], "]"}]}], "-", 
+        RowBox[{
+         SubscriptBox["\[PartialD]", 
+          RowBox[{"coords", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]], 
+         RowBox[{"coefficients", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "j", ",", "l"}], "]"}], "]"}]}], "+", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"j", ",", "dummy", ",", "l"}], "]"}], "]"}], " ", 
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "k", ",", "dummy"}], "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"dummy", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"k", ",", "dummy", ",", "l"}], "]"}], "]"}], " ", 
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "j", ",", "dummy"}], "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"dummy", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"l", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.508381565519496*^9, 3.508381565681505*^9}, 
+   3.508381632526328*^9, 3.508381777301609*^9, {3.5083818529139338`*^9, 
+   3.508381857444193*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RiemannTensor2", "[", 
+   RowBox[{"coefficients__", ",", "metric__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"j", ",", "i", ",", "k", ",", "l", ",", "dummy"}], "}"}], ",", 
+     RowBox[{"metric", ".", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", 
+           RowBox[{"coords", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]], 
+          RowBox[{"coefficients", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "k", ",", "l"}], "]"}], "]"}]}], "-", 
+         RowBox[{
+          SubscriptBox["\[PartialD]", 
+           RowBox[{"coords", "[", 
+            RowBox[{"[", "k", "]"}], "]"}]], 
+          RowBox[{"coefficients", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "j", ",", "l"}], "]"}], "]"}]}], "+", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"coefficients", "[", 
+             RowBox[{"[", 
+              RowBox[{"j", ",", "dummy", ",", "l"}], "]"}], "]"}], " ", 
+            RowBox[{"coefficients", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "k", ",", "dummy"}], "]"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"dummy", ",", "1", ",", 
+             RowBox[{
+              RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], "-", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"coefficients", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "dummy", ",", "l"}], "]"}], "]"}], " ", 
+            RowBox[{"coefficients", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "j", ",", "dummy"}], "]"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"dummy", ",", "1", ",", 
+             RowBox[{
+              RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"l", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.5083780730457373`*^9, 3.5083781568735323`*^9}, {
+   3.5083782399992867`*^9, 3.508378249781846*^9}, {3.5083782972195597`*^9, 
+   3.508378562992761*^9}, {3.5083785939275303`*^9, 3.5083786205800548`*^9}, 
+   3.508381557463035*^9, {3.5083892720652847`*^9, 3.5083893209700823`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Ricci Curvature Tensor", "Section",
+ CellChangeTimes->{{3.508378977872491*^9, 3.5083789867149963`*^9}}],
+
+Cell[TextData[Cell[BoxData[{
+ FormBox[
+  RowBox[{"RicciTensor1", "=", 
+   RowBox[{
+    SubscriptBox["R", "ij"], "=", 
+    SubscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox["R", "l"], ")"}], "ilj"]}]}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{"RicciTensor2", "=", 
+   RowBox[{
+    SubscriptBox["R", "ij"], "=", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[PartialD]", "l"], 
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "ij"], "l"]}], "-", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "j"], 
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "il"], "l"]}], "+", 
+     RowBox[{
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "ij"], "l"], 
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "lm"], "m"]}], "-", 
+     RowBox[{
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "ij"], "m"], 
+      SuperscriptBox[
+       SubscriptBox["\[CapitalGamma]", "jm"], "l"]}]}]}]}], TraditionalForm]}],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.5083790240521317`*^9, 3.508379031287546*^9}, {
+  3.5083790616332817`*^9, 3.5083791581428013`*^9}, {3.5083820727365065`*^9, 
+  3.508382129720766*^9}, {3.5083826047039337`*^9, 3.5083826055749836`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RicciTensor", "[", 
+   RowBox[{"curvature__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "l", ",", "j"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{"curvature", "[", 
+          RowBox[{"[", 
+           RowBox[{"l", ",", "i", ",", "l", ",", "j"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"l", ",", "1", ",", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.508382645476266*^9, 3.508382653625732*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RicciTensor1", "[", 
+   RowBox[{"curvature__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "l", ",", "j"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{"curvature", "[", 
+          RowBox[{"[", 
+           RowBox[{"l", ",", "i", ",", "l", ",", "j"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"l", ",", "1", ",", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.508379180111058*^9, 3.5083794905898166`*^9}, {
+   3.508379525949839*^9, 3.5083795910995655`*^9}, {3.5083796453786697`*^9, 
+   3.5083796880681114`*^9}, {3.5083797602692413`*^9, 3.508379767186637*^9}, {
+   3.5083798376756687`*^9, 3.5083798447360725`*^9}, {3.508379880725131*^9, 
+   3.508379881772191*^9}, {3.508379953420289*^9, 3.508380037651107*^9}, 
+   3.508380134379639*^9, {3.508380252954421*^9, 3.5083802536944637`*^9}, {
+   3.5083803352071257`*^9, 3.508380376153468*^9}, 3.508381110222454*^9, {
+   3.50838213887729*^9, 3.5083822399610715`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RicciTensor2", "[", 
+   RowBox[{"coefficients__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "j", ",", "l", ",", "m"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           SubscriptBox["\[PartialD]", 
+            RowBox[{"coords", "[", 
+             RowBox[{"[", "l", "]"}], "]"}]], 
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "j", ",", "l"}], "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"l", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           SubscriptBox["\[PartialD]", 
+            RowBox[{"coords", "[", 
+             RowBox[{"[", "j", "]"}], "]"}]], 
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "l", ",", "l"}], "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"l", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], "+", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "j", ",", "l"}], "]"}], "]"}], 
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"l", ",", "m", ",", "m"}], "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"l", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], "-", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "l", ",", "m"}], "]"}], "]"}], 
+           RowBox[{"coefficients", "[", 
+            RowBox[{"[", 
+             RowBox[{"j", ",", "m", ",", "l"}], "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"l", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{
+  3.5083821356331043`*^9, {3.5083824444277663`*^9, 3.5083824450598025`*^9}, {
+   3.50838255988437*^9, 3.5083826207178497`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scalar Curvature", "Section",
+ CellChangeTimes->{{3.508381229233261*^9, 3.5083812322464333`*^9}}],
+
+Cell["The trace of the Ricci Curvature Tensor", "Text",
+ CellChangeTimes->{{3.508381236501677*^9, 3.5083812431660585`*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"R", "=", 
+   RowBox[{
+    SuperscriptBox["g", "ij"], 
+    SubscriptBox["R", "ij"]}]}], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.5083812513305254`*^9, 3.5083812709346466`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ScalarCurvature", "[", 
+    RowBox[{"ricci__", ",", "metric__", ",", "coords_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "j"}], "}"}], ",", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Inverse", "[", "metric", "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}], 
+        RowBox[{"ricci", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5083812749818783`*^9, 3.5083813409416504`*^9}, {
+  3.5083826849995265`*^9, 3.5083827299230957`*^9}, {3.508382802932272*^9, 
+  3.50838280500139*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Euler-Lagrange Equations", "Section",
+ CellChangeTimes->{{3.5083771648117895`*^9, 3.508377171843192*^9}}],
+
+Cell["The Euler-Lagrange equations are the Geodesic Equations", "Text",
+ CellChangeTimes->{{3.508377191468314*^9, 3.508377225948286*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    OverscriptBox["\[Xi]", ".."], "\[Lambda]"], "+", 
+   RowBox[{
+    SuperscriptBox[
+     SubscriptBox["\[CapitalGamma]", "\[Mu]\[Nu]"], "\[Lambda]"], 
+    SuperscriptBox[
+     OverscriptBox["\[Xi]", "."], "\[Mu]"], 
+    OverscriptBox[
+     RowBox[{
+      SuperscriptBox["\[Xi]", "\[Nu]"], "=", "0"}], "."]}]}], 
+  TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.508377234941801*^9, 3.5083772987274494`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EulerLagrangeEquations", "[", 
+   RowBox[{"coefficients__", ",", "coords__", ",", "param_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mu", ",", "nu", ",", "lambda"}], "}"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"coords", "[", 
+           RowBox[{"[", "lambda", "]"}], "]"}], "''"}], "[", "param", "]"}], 
+        "+", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"coefficients", "[", 
+              RowBox[{"[", "mu", "]"}], "]"}], "[", 
+             RowBox[{"[", "nu", "]"}], "]"}], "[", 
+            RowBox[{"[", "lambda", "]"}], "]"}], " ", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"coords", "[", 
+              RowBox[{"[", "mu", "]"}], "]"}], "'"}], "[", "param", "]"}], 
+           RowBox[{
+            RowBox[{
+             RowBox[{"coords", "[", 
+              RowBox[{"[", "nu", "]"}], "]"}], "'"}], "[", "param", "]"}]}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"mu", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"nu", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"lambda", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Einstein Tensor", "Section",
+ CellChangeTimes->{{3.5083837434340653`*^9, 3.508383747333288*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox["G", "ab"], "=", 
+   RowBox[{
+    SuperscriptBox["R", "ab"], "-", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox["g", "ab"], "R"}]}]}], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.5083837924458685`*^9, 3.5083838112869463`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EinsteinTensor", "[", 
+   RowBox[{"ricci__", ",", "metric__", ",", "curvature_", ",", "coords__"}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Inverse", "[", "ricci", "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"a", ",", "b"}], "]"}], "]"}], "-", 
+        RowBox[{
+         FractionBox["1", "2"], 
+         RowBox[{
+          RowBox[{"Inverse", "[", "metric", "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"a", ",", "b"}], "]"}], "]"}], " ", "curvature"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"b", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.5083838300000167`*^9, 3.508383988218066*^9}, {
+  3.508384036462826*^9, 3.508384040397051*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Weyl Tensor", "Section",
+ CellChangeTimes->{{3.508384149982319*^9, 3.508384152335453*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["C", "iklm"], "=", 
+   RowBox[{
+    SubscriptBox["R", "iklm"], "+", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"n", "-", "2"}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         SubscriptBox["R", "il"]}], 
+        SubscriptBox["g", "km"]}], "+", 
+       RowBox[{
+        SubscriptBox["R", "im"], 
+        SubscriptBox["g", "kl"]}], "+", 
+       RowBox[{
+        SubscriptBox["R", "kl"], 
+        SubscriptBox["g", "im"]}], "-", 
+       RowBox[{
+        SubscriptBox["R", "km"], 
+        SubscriptBox["g", "il"]}]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"n", "-", "1"}], ")"}], 
+       RowBox[{"(", 
+        RowBox[{"n", "-", "2"}], ")"}]}]], 
+     RowBox[{"R", "(", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["g", "il"], 
+        SubscriptBox["g", "km"]}], "-", 
+       RowBox[{
+        SubscriptBox["g", "im"], 
+        SubscriptBox["g", "kl"]}]}], ")"}]}]}]}], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Text",
+ CellChangeTimes->{{3.508384156988719*^9, 3.508384267825059*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WeylTensor", "[", 
+   RowBox[{
+   "riemann__", ",", " ", "ricci__", ",", "metric__", ",", "curvature__", ",",
+     "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "k", ",", "l", ",", "m"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"riemann", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "k", ",", "l", ",", "m"}], "]"}], "]"}], "+", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "-", "2"}]], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", 
+             RowBox[{"ricci", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", ",", "l"}], "]"}], "]"}]}], " ", 
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "m"}], "]"}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"ricci", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "m"}], "]"}], "]"}], " ", 
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "l"}], "]"}], "]"}]}], "+", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ricci", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "l"}], "]"}], "]"}], " ", 
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "m"}], "]"}], "]"}]}], "-", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ricci", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "m"}], "]"}], "]"}], " ", 
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "l"}], "]"}], "]"}]}]}], ")"}]}], "+", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "-", "1"}], ")"}], 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "-", "2"}], ")"}]}], ")"}]}], 
+         " ", "curvature", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "l"}], "]"}], "]"}], " ", 
+            RowBox[{"metric", " ", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "m"}], "]"}], "]"}]}], "-", 
+           RowBox[{
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "m"}], "]"}], "]"}], " ", 
+            RowBox[{"metric", "[", 
+             RowBox[{"[", 
+              RowBox[{"k", ",", "l"}], "]"}], "]"}]}]}], ")"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"l", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.5083842797537413`*^9, 3.50838460213218*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Covariant Derivative", "Section",
+ CellChangeTimes->{{3.508385659752672*^9, 3.508385663172868*^9}}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Del]", 
+     SubscriptBox["e", "j"]], 
+    SuperscriptBox["u", "i"]}], "=", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Del]", "j"], 
+     SuperscriptBox["u", "i"]}], "=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "j"], 
+       SuperscriptBox["u", "i"]}], "+", 
+      RowBox[{
+       SuperscriptBox["u", "k"], 
+       SuperscriptBox[
+        SubscriptBox["\[CapitalGamma]", "jk"], "i"]}]}], ")"}]}]}], 
+  TraditionalForm]]]], "Text",
+ CellChangeTimes->{{3.508385225380828*^9, 3.5083852916706195`*^9}, {
+  3.5083853482848577`*^9, 3.5083853572613707`*^9}, {3.5087799491258774`*^9, 
+  3.50877996263065*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CovariantDerivative", "[", 
+   RowBox[{"vector__", ",", "coefficients__", ",", "coords__"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "j", ",", "k"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", 
+           RowBox[{"coords", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]], 
+          RowBox[{"vector", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], "+", "\[IndentingNewLine]", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"vector", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], " ", 
+            RowBox[{"coefficients", "[", 
+             RowBox[{"[", 
+              RowBox[{"j", ",", "k", ",", "i"}], "]"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "1", ",", 
+             RowBox[{
+              RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], ".", 
+      RowBox[{"Array", "[", 
+       RowBox[{
+        RowBox[{"1", "&"}], ",", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "coords", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}]}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.50838513415161*^9, 3.5083852138551683`*^9}, {
+   3.5083852974119477`*^9, 3.5083853149599514`*^9}, {3.508385383434868*^9, 
+   3.508385470332838*^9}, {3.508385612400964*^9, 3.5083856519872284`*^9}, {
+   3.5083861892609587`*^9, 3.508386208361051*^9}, {3.508386409714568*^9, 
+   3.5083864485497894`*^9}, 3.5083865749160166`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{502, 555},
+WindowMargins->{{Automatic, 295}, {Automatic, 29}},
+Magnification->1.100000023841858,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (January 30, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 115, 1, 149, "Title"],
+Cell[CellGroupData[{
+Cell[707, 27, 114, 1, 77, "Section"],
+Cell[824, 30, 366, 13, 33, "Text"],
+Cell[1193, 45, 1162, 37, 56, "Text"],
+Cell[2358, 84, 131, 1, 30, "Text"],
+Cell[2492, 87, 2032, 65, 99, "Text"],
+Cell[4527, 154, 87, 1, 30, "Text"],
+Cell[4617, 157, 908, 31, 55, "Text"],
+Cell[5528, 190, 1647, 44, 246, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7212, 239, 186, 2, 106, "Section"],
+Cell[7401, 243, 365, 7, 67, "Text"],
+Cell[7769, 252, 732, 20, 40, "Text"],
+Cell[8504, 274, 2437, 64, 253, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10978, 343, 194, 4, 77, "Section"],
+Cell[11175, 349, 229, 4, 49, "Text"],
+Cell[11407, 355, 842, 25, 40, "Text"],
+Cell[12252, 382, 3652, 84, 334, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15941, 471, 113, 1, 77, "Section"],
+Cell[16057, 474, 1425, 41, 59, "Text"],
+Cell[17485, 517, 2982, 77, 313, "Input"],
+Cell[20470, 596, 3229, 79, 353, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23736, 680, 109, 1, 77, "Section"],
+Cell[23848, 683, 1252, 35, 58, "Text"],
+Cell[25103, 720, 1223, 32, 173, "Input"],
+Cell[26329, 754, 1729, 39, 173, "Input"],
+Cell[28061, 795, 3584, 93, 373, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31682, 893, 103, 1, 77, "Section"],
+Cell[31788, 896, 123, 1, 30, "Text"],
+Cell[31914, 899, 266, 7, 33, "Text"],
+Cell[32183, 908, 1150, 32, 113, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33370, 945, 111, 1, 77, "Section"],
+Cell[33484, 948, 137, 1, 30, "Text"],
+Cell[33624, 951, 512, 15, 38, "Text"],
+Cell[34139, 968, 1808, 50, 233, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35984, 1023, 102, 1, 77, "Section"],
+Cell[36089, 1026, 349, 10, 40, "Text"],
+Cell[36441, 1038, 1280, 35, 193, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37758, 1078, 96, 1, 77, "Section"],
+Cell[37857, 1081, 1171, 40, 70, "Text"],
+Cell[39031, 1123, 4024, 110, 435, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43092, 1238, 105, 1, 77, "Section"],
+Cell[43200, 1241, 729, 23, 36, "Text"],
+Cell[43932, 1266, 2138, 53, 193, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
