@@ -4,5 +4,5 @@ An algorithm in python and Mathematica to simulate a random walk on a Riemannian
 
 More information can be found here:
 * [poster pdf](https://drive.google.com/open?id=1GpR2M5bb8UFjC0eys6_PlWGVRNwm8Wc9)
-* [abstract pdf] (https://drive.google.com/open?id=1RZAUVINDTh0OFGn3gEcIsoE2znNny4R_)
+* [abstract pdf](https://drive.google.com/open?id=1RZAUVINDTh0OFGn3gEcIsoE2znNny4R_)
 * [slides pdf](https://drive.google.com/open?id=12h1QE_lCRyCXwhJMRoANQIg55WIMWX_m)
